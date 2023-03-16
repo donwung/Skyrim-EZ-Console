@@ -8,6 +8,7 @@ const Output = (props) => {
         <div>
             <h3>Output</h3>
             {/* TODO: print all keyvals */}
+            <p>{JSON.stringify(skills)}</p>
 
             {Object.keys(skills).map((skillName) => {
                 return (

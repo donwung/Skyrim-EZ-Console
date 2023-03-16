@@ -13,17 +13,20 @@ function App() {
     let updated = { ...skills, [skillChanged]: e.target.value * 1 };
     let input = e.target.value;
 
-    if (input === "") {
-      // removes key if no value is input
-      delete updated[skillChanged]
-    }
+    // console.log(input);
     if (input * 1 > 100) {
       input = 100;
     } else if (input * 1 < 0) {
       input = 0;
     }
-
     updated = { ...skills, [skillChanged]: input };
+    // console.log(updated);
+
+    if (input === "") {
+      // removes key if no value is input
+      delete updated[skillChanged]
+      // console.log("removing key");
+    }
 
     setSkills(updated)
   }
@@ -36,6 +39,7 @@ function App() {
       <div>
         <h2>TODO: allow user to ADD or SET</h2>
         <h2>Select a stat to SET:</h2>
+        {/* TODO: Add the rest of the attributes */}
         <form>
           <div>
             <label>Archery</label>
