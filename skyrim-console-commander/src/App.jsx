@@ -5,8 +5,6 @@ import Output from './components/output'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [marksman, setMarksman] = useState(0)
-  const [enchanting, setEnchanting] = useState(undefined)
   const [skills, setSkills] = useState({});
 
   const handleOnSkillChange = (e, skillChanged) => {
