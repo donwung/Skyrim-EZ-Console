@@ -6,6 +6,10 @@ import OneSkill from './components/oneSkill'
 
 function App() {
     const [count, setCount] = useState(0)
+
+    // TODO: add perks
+    // TODO: refactor and move the data to another file
+    // TODO: test effects of multilevel perks
     const [skills, setSkills] = useState({
         // mage skills
         "alteration": {
@@ -49,7 +53,36 @@ function App() {
             "name": "Archery",
             "technicalName": "marksman",
             "level": 0,
-            "selected": false
+            "selected": false,
+            "perks": {
+                "overdraw": {
+                    "name": "Overdraw",
+                    "rank": {
+                        "1": {
+                            "description": "Bows do 20 % more damage.",
+                            "ID": "000babed"
+                        },
+                        "2": {
+                            "description": "Bows do 40 % more damage.",
+                            "ID": "0007934a"
+                        },
+                        "3": {
+                            "description": "Bows do 60 % more damage.",
+                            "ID": "0007934b"
+                        },
+                        "4": {
+                            "description": "Bows do 80 % more damage.",
+                            "ID": "0007934d"
+                        },
+                        "5": {
+                            "description": "Bows do twice as much damage.",
+                            "ID": "00079354"
+                        }
+                    }
+                },
+                "criticalShot": {},
+                "huntersDiscipline": {}
+            }
         },
         "alchemy": {
             "name": "Alchemy",
@@ -152,6 +185,8 @@ function App() {
         }
     }
 
+    console.log(skills.archery.perks.overdraw.rank[1].ID)
+
     // TODO: condense checking and updating skill
     // 
     const handleOnSkillChange = (e) => {
@@ -188,7 +223,7 @@ function App() {
                 allSelected.push({
                     [key]: value
                 })
-                ret += key + ": " + value.level + ", "
+                ret += "player.setav " + value.technicalName + " " + value.level + " |||| "
             }
         }
 
