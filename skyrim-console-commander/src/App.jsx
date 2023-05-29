@@ -2,86 +2,125 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import Output from './components/output'
+import OneSkill from './components/oneSkill'
 
 function App() {
     const [count, setCount] = useState(0)
     const [skills, setSkills] = useState({
         // mage skills
         "alteration": {
+            "name": "Alteration",
+            "technicalName": "alteration",
             "level": 0,
             "selected": false
         },
         "conjuration": {
+            "name": "Conjuration",
+            "technicalName": "conjuration",
             "level": 0,
             "selected": false
         },
         "destruction": {
+            "name": "Destruction",
+            "technicalName": "destruction",
             "level": 0,
             "selected": false
         },
         "enchanting": {
+            "name": "Enchanting",
+            "technicalName": "enchanting",
             "level": 0,
             "selected": false
         },
         "illusion": {
+            "name": "Illusion",
+            "technicalName": "illusion",
             "level": 0,
             "selected": false
         },
         "restoration": {
+            "name": "Restoration",
+            "technicalName": "restoration",
             "level": 0,
             "selected": false
         },
         // thief skills
         "archery": {
+            "name": "Archery",
+            "technicalName": "marksman",
             "level": 0,
             "selected": false
         },
         "alchemy": {
+            "name": "Alchemy",
+            "technicalName": "alchemy",
             "level": 0,
             "selected": false
         },
-        "lightArmor": {
+        "lightarmor": {
+            "name": "Light Armor",
+            "technicalName": "lightarmor",
             "level": 0,
             "selected": false
         },
         "lockpicking": {
+            "name": "Lockpicking",
+            "technicalName": "lockpicking",
             "level": 0,
             "selected": false
         },
         "pickpocket": {
+            "name": "Pickpocket",
+            "technicalName": "pickpocket",
             "level": 0,
             "selected": false
         },
         "sneak": {
+            "name": "Sneak",
+            "technicalName": "sneak",
             "level": 0,
             "selected": false
         },
         "speech": {
+            "name": "Speech",
+            "technicalName": "speechcraft",
             "level": 0,
             "selected": false
         },
         // warrior skills
         "block": {
+            "name": "Block",
+            "technicalName": "block",
             "level": 0,
             "selected": false
         },
-        "heavyArmor": {
+        "heavyarmor": {
+            "name": "Heavy Armor",
+            "technicalName": "heavyarmor",
             "level": 0,
             "selected": false
         },
-        "oneHanded": {
+        "onehanded": {
+            "name": "One Handed",
+            "technicalName": "onehanded",
             "level": 0,
             "selected": false
         },
         "smithing": {
+            "name": "Smithing",
+            "technicalName": "smithing",
             "level": 0,
             "selected": false
         },
-        "twoHanded": {
+        "twohanded": {
+            "name": "Two Handed",
+            "technicalName": "twohanded",
             "level": 0,
             "selected": false
         },
     });
+    const [allSelected, setAllSelected] = useState([])
+
     const [isAdding, setIsAdding] = useState(true);
 
     const handleOnSkillSubmit = (e) => {
@@ -114,15 +153,16 @@ function App() {
     }
 
     // TODO: condense checking and updating skill
+    // 
     const handleOnSkillChange = (e) => {
         console.log(e.target.name)
         console.log(e.target.value)
-        let skillName = e.target.name;
+        let skillName = e.target.name.toLowerCase();
         let skillValue = e.target.value;
         let updatedSkill = {
             [skillName]: {}
         };
-        console.log(skillName)
+        // console.log(skillName)
         if (skillName in skills) {
             updatedSkill = {
                 [skillName]: {
@@ -133,6 +173,31 @@ function App() {
             console.log(updatedSkill)
             setSkills({ ...skills, [skillName]: updatedSkill[skillName] })
         }
+    }
+
+
+    // DEBUG:
+    const printAllSelected = () => {
+        const allSelected = []
+        let ret = "";
+
+
+        for (const [key, value] of Object.entries(skills)) {
+            if (value.selected) {
+                console.log(key, value);
+                allSelected.push({
+                    [key]: value
+                })
+                ret += key + ": " + value.level + ", "
+            }
+        }
+
+
+        return (
+            <div>
+                {ret}
+            </div>
+        )
     }
 
     return (
@@ -149,60 +214,110 @@ function App() {
                     <div style={{ display: "flex" }} >
                         <div>
                             <h2>Warrior Skills</h2>
-                            <div style={{ color: skills.oneHanded.selected ? "green" : "grey" }}>
-                                <input
-                                    type="checkbox"
-                                    name="oneHanded"
-                                    onChange={(e) => { handleOnCheckedSkill(e.target.name) }}
-                                ></input>
-                                <label >One Handed</label>
-                                <input
-                                    type="number"
-                                    name="oneHanded"
-                                    onChange={(e) => handleOnSkillChange(e)}
-                                ></input>
-                            </div>
-                            
-
+                            <OneSkill
+                                skill={skills.archery}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.block}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.heavyarmor}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.onehanded}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.smithing}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.twohanded}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
                         </div>
                         <div>
                             <h2>Mage Skills</h2>
-                            <div style={{ color: skills.enchanting.selected ? "green" : "grey" }}>
-                                <input
-                                    type="checkbox"
-                                    name="enchanting"
-                                    onChange={(e) => { handleOnCheckedSkill(e.target.name) }}
-                                ></input>
-                                <label >Enchanting</label>
-                                <input
-                                    type="number"
-                                    name="enchanting"
-                                    onChange={(e) => handleOnSkillChange(e)}
-                                ></input>
-                            </div>
+                            <OneSkill
+                                skill={skills.alteration}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.conjuration}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.destruction}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.enchanting}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.illusion}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.restoration}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
                         </div>
                         <div>
                             <h2>Thief Skills</h2>
-                            <div style={{ color: skills.archery.selected ? "green" : "grey" }}>
-                                {/* If checked, skill update gets sent to output for console command */}
-                                <input
-                                    type="checkbox"
-                                    name="archery"
-                                    onChange={(e) => { handleOnCheckedSkill(e.target.name) }}
-                                ></input>
-                                <label >archery</label>
-                                {/*  */}
-                                <input
-                                    type="number"
-                                    name="archery"
-                                    onChange={(e) => handleOnSkillChange(e)}
-                                ></input>
-                            </div>
+                            <OneSkill
+                                skill={skills.alchemy}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.lightarmor}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.lockpicking}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.pickpocket}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.sneak}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
+                            <OneSkill
+                                skill={skills.speech}
+                                handleOnCheckedSkill={handleOnCheckedSkill}
+                                handleOnSkillChange={handleOnSkillChange}>
+                            </OneSkill>
                         </div>
                     </div>
                     <button>Submit</button>
                 </form>
                 <button onClick={() => console.log(skills)}>DEBUG CLG</button>
+                {
+                    printAllSelected()
+                }
                 {/* <div>
             <label>Enchanting</label>
             <input type="number" onChange={(e) => handleOnSkillChange(e, "enchanting")}></input>
