@@ -14,7 +14,7 @@ const OneSkill = (props) => {
             <input
                 type="number"
                 name={skill.name.replace(/\s/g, '').toLowerCase()}
-                onChange={(e) => handleOnSkillChange(e)}
+                onChange={(e) => skill.selected && handleOnSkillChange(e)}
                 value={skill.selected ? skill.level : 0}
             ></input>
         </div>

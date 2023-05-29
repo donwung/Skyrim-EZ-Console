@@ -194,7 +194,7 @@ function App() {
 
 
         return (
-            <div>
+            <div style={{ width: "50%" }}>
                 {ret}
             </div>
         )
