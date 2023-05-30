@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import re
 
 html_doc = """
 <table class="wikitable sortable jquery-tablesorter">
@@ -11,134 +12,174 @@ html_doc = """
 <th class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Perk Req.</th>
 </tr></thead><tbody>
 <tr>
-<td rowspan="5"><i><span id="Overdraw"></span>Overdraw</i></td>
+<td><i><span id="Novice_Conjuration"></span>Novice Conjuration</i></td>
+<td></td>
+<td>Cast Novice level Conjuration spells for half magicka.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0f2ca7</span></span></span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><i><span id="Apprentice_Conjuration"></span>Apprentice Conjuration</i></td>
+<td></td>
+<td>Cast Apprentice level Conjuration spells for half magicka.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0c44bb</span></span></span></td>
+<td>25 Conjuration</td>
+<td>Novice Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Adept_Conjuration"></span>Adept Conjuration</i></td>
+<td></td>
+<td>Cast Adept level Conjuration spells for half magicka.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0c44bc</span></span></span></td>
+<td>50 Conjuration</td>
+<td>Apprentice Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Expert_Conjuration"></span>Expert Conjuration</i></td>
+<td></td>
+<td>Cast Expert level Conjuration spells for half magicka.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0c44bd</span></span></span></td>
+<td>75 Conjuration</td>
+<td>Adept Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Master_Conjuration"></span>Master Conjuration</i></td>
+<td></td>
+<td>Cast Master level Conjuration spells for half magicka.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0c44be</span></span></span></td>
+<td>100 Conjuration</td>
+<td>Expert Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Conjuration_Dual_Casting"></span>Conjuration Dual Casting</i></td>
+<td></td>
+<td><a href="/wiki/Skyrim:Magic_Overview#Dual-Casting" title="Skyrim:Magic Overview">Dual casting</a> a Conjuration spell overcharges the spell, allowing it to last longer.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0153ce</span></span></span></td>
+<td>20 Conjuration</td>
+<td>Novice Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Mystic_Binding"></span>Mystic Binding</i></td>
+<td></td>
+<td>Bound weapons do more damage.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0640b3</span></span></span></td>
+<td>20 Conjuration</td>
+<td>Novice Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Soul_Stealer"></span>Soul Stealer</i></td>
+<td></td>
+<td>Bound weapons cast Soul Trap on targets.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0d799e</span></span></span></td>
+<td>30 Conjuration</td>
+<td>Mystic Binding</td>
+</tr>
+<tr>
+<td><i><span id="Oblivion_Binding"></span>Oblivion Binding</i></td>
+<td></td>
+<td>Bound weapons will banish summoned creatures and turn raised ones.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0d799c</span></span></span></td>
+<td>50 Conjuration</td>
+<td>Soul Stealer</td>
+</tr>
+<tr>
+<td><i><span id="Necromancy"></span>Necromancy</i></td>
+<td></td>
+<td>Greater duration for reanimated undead.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0581dd</span></span></span></td>
+<td>40 Conjuration</td>
+<td>Novice Conjuration</td>
+</tr>
+<tr>
+<td><i><span id="Dark_Souls"></span>Dark Souls</i></td>
+<td></td>
+<td>Reanimated undead have 100 points more health.<sup id="cite_ref-Zombie_1-0" class="reference"><a href="#cite_note-Zombie-1">[1]</a></sup></td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0581de</span></span></span></td>
+<td>70 Conjuration</td>
+<td>Necromancy</td>
+</tr>
+<tr>
+<td rowspan="2"><i><span id="Summoner"></span>Summoner</i></td>
 <td>1</td>
-<td>Bows do 20% more damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">0babed</span></span></span></td>
-<td></td>
-<td></td>
+<td>Can summon atronachs or raise undead twice as far away.<sup id="cite_ref-Dremora_2-0" class="reference"><a href="#cite_note-Dremora-2">[2]</a></sup></td>
+<td><span class="idall"><span class="idref">00<span class="idcase">105f30</span></span></span></td>
+<td>30 Conjuration</td>
+<td>Novice Conjuration</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Bows do 40% more damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">07934a</span></span></span></td>
-<td>20 Archery</td>
+<td>Can summon atronachs or raise undead three times as far away.<sup id="cite_ref-Dremora_2-1" class="reference"><a href="#cite_note-Dremora-2">[2]</a></sup></td>
+<td><span class="idall"><span class="idref">00<span class="idcase">105f31</span></span></span></td>
+<td>70 Conjuration</td>
 <td></td>
 </tr>
 <tr>
-<td>3</td>
-<td>Bows do 60% more damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">07934b</span></span></span></td>
-<td>40 Archery</td>
+<td><i><span id="Atromancy"></span>Atromancy</i></td>
 <td></td>
+<td>Double duration for conjured Atronachs.<sup id="cite_ref-Dremora_2-2" class="reference"><a href="#cite_note-Dremora-2">[2]</a></sup></td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0cb419</span></span></span></td>
+<td>40 Conjuration</td>
+<td>Summoner</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Bows do 80% more damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">07934d</span></span></span></td>
-<td>60 Archery</td>
+<td><i><span id="Elemental_Potency"></span>Elemental Potency</i></td>
 <td></td>
+<td>Conjured Atronachs are 50% more powerful.</td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0cb41a</span></span></span></td>
+<td>80 Conjuration</td>
+<td>Atromancy</td>
 </tr>
 <tr>
-<td>5</td>
-<td>Bows do twice as much damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">079354</span></span></span></td>
-<td>80 Archery</td>
+<td><i><span id="Twin_Souls"></span>Twin Souls</i></td>
 <td></td>
-</tr>
-<tr>
-<td rowspan="3"><i><span id="Critical_Shot"></span>Critical Shot</i></td>
-<td>1</td>
-<td>10% chance of a critical hit that does extra damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">105f1c</span></span></span></td>
-<td>30 Archery</td>
-<td>Overdraw</td>
-</tr>
-<tr>
-<td>2</td>
-<td>15% chance of a critical hit that does 25% more critical damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">105f1e</span></span></span></td>
-<td>60 Archery</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>20% chance of a critical hit that does 50% more critical damage.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">105f1f</span></span></span></td>
-<td>90 Archery</td>
-<td></td>
-</tr>
-<tr>
-<td><i><span id="Hunter.27s_Discipline"></span>Hunter's Discipline</i></td>
-<td></td>
-<td>Recover twice as many arrows from dead bodies.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">051b12</span></span></span></td>
-<td>50 Archery</td>
-<td>Critical Shot</td>
-</tr>
-<tr>
-<td><i><span id="Ranger"></span>Ranger</i></td>
-<td></td>
-<td>Able to move faster with a drawn bow.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">058f63</span></span></span></td>
-<td>60 Archery</td>
-<td>Hunter's Discipline</td>
-</tr>
-<tr>
-<td><i><span id="Eagle_Eye"></span>Eagle Eye</i></td>
-<td></td>
-<td>Pressing Block while aiming will zoom in your view.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">058f61</span></span></span></td>
-<td>30 Archery</td>
-<td>Overdraw</td>
-</tr>
-<tr>
-<td><i><span id="Power_Shot"></span>Power Shot</i></td>
-<td></td>
-<td>Arrows stagger all but the largest opponents 50% of the time.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">058f62</span></span></span></td>
-<td>50 Archery</td>
-<td>Eagle Eye</td>
-</tr>
-<tr>
-<td><i><span id="Quick_Shot"></span>Quick Shot</i></td>
-<td></td>
-<td>Can draw a bow 30% faster.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">105f19</span></span></span></td>
-<td>70 Archery</td>
-<td>Power Shot</td>
-</tr>
-<tr>
-<td rowspan="2"><i><span id="Steady_Hand"></span>Steady Hand</i></td>
-<td>1</td>
-<td>Zooming in with a bow slows time by 25%.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">103ada</span></span></span></td>
-<td>40 Archery</td>
-<td>Eagle Eye</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Zooming in with a bow slows time by 50%.</td>
-<td><span class="idall"><span class="idref">00<span class="idcase">103adb</span></span></span></td>
-<td>60 Archery</td>
-<td></td>
-</tr>
-<tr>
-<td><i><span id="Bullseye"></span>Bullseye</i></td>
-<td></td>
-<td>15% chance of paralyzing the target for a few seconds.<sup class="reference plainlinks nourlexpansion" id="note_1"><a href="#intnote_1">†</a></sup></td>
-<td><span class="idall"><span class="idref">00<span class="idcase">058f64</span></span></span></td>
-<td>100 Archery</td>
-<td>Ranger <i>or</i> Quick Shot</td>
+<td>You can have two atronachs or reanimated zombies.<sup id="cite_ref-Dremora_2-3" class="reference"><a href="#cite_note-Dremora-2">[2]</a></sup></td>
+<td><span class="idall"><span class="idref">00<span class="idcase">0d5f1c</span></span></span></td>
+<td>100 Conjuration</td>
+<td>Dark Souls <i>or</i> Elemental Potency</td>
 </tr>
 </tbody><tfoot></tfoot></table>
 """
+
+# "SKILLNAME": {
+#   "rank": {
+#       "1": {
+#           "description": "DESCRIPTION RANK 1",
+#           "ID": "SKILL ID"
+#       }
+#       "2": {
+#           "description": "DESCRIPTION RANK 2",
+#           "ID": "SKILL ID"
+#       }
+#   }
+# },
+
 
 soup = BeautifulSoup(html_doc, 'html.parser')
 
 # print(soup.tbody.find_all('tr'))
 
-# for tableData in soup.tbody.find_all('tr'):
-#     print(soup.get_text())
+rowDataArr = []
+memo = []
 
-print(soup.tbody.get_text())
+for tableRow in soup.tbody.find_all('tr'):
+    # print(tableRow.get_text() + "!!")
+    for tableData in tableRow:
+        if (tableData.get_text() != "\n" and tableData.get_text() != ""):
+            if not (re.search("[0-9][0-9]\s", tableData.get_text())):
+                if (tableData.get_text() not in memo):
+                    if (re.search("[.]", tableData.get_text())):
+                        print('"' + "description" + '":' +
+                              '"' + tableData.get_text() + '"')
+                    else:
+                        if (not tableData.get_text().isnumeric()):
+                            if (len(tableData.get_text() + "") == 8):
+                                print('"' + "ID" + '":' + '"' +
+                                      tableData.get_text() + '"')
+                            else:
+                                print('"' + tableData.get_text() + '"')
+                            memo.append(tableData.get_text())
+                        else:
+                            print('"' + tableData.get_text() + '":')
+
+    # rowDataArr.append(tableRow)
