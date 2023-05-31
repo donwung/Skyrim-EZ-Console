@@ -1628,7 +1628,7 @@ function App() {
                 <form onSubmit={(e) => { handleOnSkillSubmit(e) }}>
                     <div style={{ display: "flex" }} >
                         <div>
-                            <h2>Warrior Skills</h2>
+                            {/* <h2>Warrior Skills</h2>
                             <OneSkill
                                 skill={skills.archery}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
@@ -1658,10 +1658,10 @@ function App() {
                                 skill={skills.twohanded}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill>
+                            </OneSkill> */}
                         </div>
                         <div>
-                            <h2>Mage Skills</h2>
+                            {/* <h2>Mage Skills</h2>
                             <OneSkill
                                 skill={skills.alteration}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
@@ -1691,11 +1691,11 @@ function App() {
                                 skill={skills.restoration}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill>
+                            </OneSkill> */}
                         </div>
                         <div>
                             <h2>Thief Skills</h2>
-                            <OneSkill
+                            {/* <OneSkill
                                 skill={skills.alchemy}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
@@ -1719,7 +1719,7 @@ function App() {
                                 skill={skills.sneak}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill>
+                            </OneSkill> */}
                             <OneSkill
                                 skill={skills.speech}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
