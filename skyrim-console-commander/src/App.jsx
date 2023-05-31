@@ -9,9 +9,6 @@ function App() {
 
     // TODO: add perks
     // TODO: refactor and move the data to another file
-    // TODO: test effects of multilevel perks
-    // TODO: remember add names to perks 
-
 
     // NOTE: two tabs for schools, four tabs for perks, six tabs for perk RANK
     const [skills, setSkills] = useState({

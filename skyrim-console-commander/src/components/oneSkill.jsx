@@ -11,29 +11,6 @@ const OneSkill = (props) => {
 
     console.log(allPerks)
 
-    // const showPerks = (e) => {
-    //     // console.log(e)
-    //     const all = [];
-
-    //     for (const p in e) {
-    //         console.log(p)
-    //         console.log(e[p].ID)
-
-    //         all.push({ [p]: e[p].ID });
-    //     }
-
-    //     all.map((one) => {
-    //         return (
-    //             // <div>{one}</div>
-    //             <div>
-    //                 Test div
-    //             </div>
-    //         )
-    //     })
-    // }
-
-
-
     return (
         <div>
             <div style={{ color: skill.selected ? "green" : "grey" }}>
@@ -53,6 +30,10 @@ const OneSkill = (props) => {
             <div>
                 My perks here:
                 {/* {showPerks(skill.perks)} */}
+                {/* BUG: cannot print out multilevel perks */}
+                {/* TODO: style buttons to look "normal" */}
+                {/* TODO: make buttons add to skyrim console output */}
+                {/* TODO: move perks to another component */}
                 {Object.keys(allPerks).map((onePerk) => {
                     return (
                         <div>
