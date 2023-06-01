@@ -2,6 +2,7 @@ import { useState } from "react"
 
 const OneSkill = (props) => {
     const skill = props.skill
+    const handleOnUpdateSkill = props.handleOnUpdateSkill
     const handleOnCheckedSkill = props.handleOnCheckedSkill
     const handleOnSkillChange = props.handleOnSkillChange
     const [showPerks, setShowPerks] = useState(false)
@@ -18,13 +19,13 @@ const OneSkill = (props) => {
                 <input
                     type="checkbox"
                     name={skill.name.replace(/\s/g, '').toLowerCase()}
-                    onChange={(e) => { handleOnCheckedSkill(e.target.name) }}
+                    onChange={(e) => { handleOnUpdateSkill(e, "check") }}
                 ></input>
                 <label>{skill.name}</label>
                 <input
                     type="number"
                     name={skill.name.replace(/\s/g, '').toLowerCase()}
-                    onChange={(e) => skill.selected && handleOnSkillChange(e)}
+                    onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
                     value={skill.selected ? skill.level : 0}
                 ></input>
             </div>

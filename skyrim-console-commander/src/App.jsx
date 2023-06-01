@@ -1548,75 +1548,53 @@ function App() {
     })
 
 
-    // DEBUG:
-    const updateSkills = () => {
+    // // DEBUG:
+    // const updateSkills = () => {
 
 
-        for (const [key, value] of Object.entries(skills)) {
-            if (value.selected) {
-                console.log(key, value);
+    //     for (const [key, value] of Object.entries(skills)) {
+    //         if (value.selected) {
+    //             console.log(key, value);
 
-                // setFinalizedSkills([...finalizedSkills], finalizedSkills.skills.push({[key]: value)})
-            }
-        }
+    //             // setFinalizedSkills([...finalizedSkills], finalizedSkills.skills.push({[key]: value)})
+    //         }
+    //     }
 
-        console.log("updated my skills")
-        console.log(finalizedSkills)
-    }
+    //     console.log("updated my skills")
+    //     console.log(finalizedSkills)
+    // }
 
+    const handleOnUpdateSkill = (e, updateType) => {
+        // console.log(e.target.name)
+        // console.log(e.target.value)
+        // console.log(updateType)
 
+        const skillName = e.target.name.toLowerCase()
+        const skillValue = e.target.value
 
-    const handleOnCheckedSkill = (skillName) => {
         let updatedSkill = {
             [skillName]: {}
-        };
-
-        // console.log(skillName)
-        if (skillName in skills) {
-            // console.log("in skills")
-            // console.log(skills[skillName])
-
-            updatedSkill = {
-                [skillName]: {
-                    ...skills[skillName],
-                    selected: !skills[skillName].selected,
-                }
-            }
-
-            // console.log(updatedSkill[skillName])
-            // console.log(skills)
-            // console.log({ ...skills, [skillName]: updatedSkill[skillName] })
-            setSkills({ ...skills, [skillName]: updatedSkill[skillName] })
         }
 
-        updateSkills()
-    }
-
-    // console.log(skills.archery.perks.overdraw.rank[1].ID)
-
-    // TODO: condense checking and updating skill
-    // 
-    const handleOnSkillChange = (e) => {
-        console.log(e.target.name)
-        console.log(e.target.value)
-        let skillName = e.target.name.toLowerCase();
-        let skillValue = e.target.value;
-        let updatedSkill = {
-            [skillName]: {}
-        };
-        // console.log(skillName)
         if (skillName in skills) {
-            updatedSkill = {
-                [skillName]: {
-                    ...skills[skillName],
-                    level: skillValue * 1,
+            if (updateType == "check") {
+                updatedSkill = {
+                    [skillName]: {
+                        ...skills[skillName],
+                        selected: !skills[skillName].selected,
+                    }
                 }
             }
-            console.log(updatedSkill)
+            if (updateType == "value") {
+                updatedSkill = {
+                    [skillName]: {
+                        ...skills[skillName],
+                        level: skillValue * 1,
+                    }
+                }
+            }
             setSkills({ ...skills, [skillName]: updatedSkill[skillName] })
         }
-
-        updateSkills()
     }
 
 
@@ -1639,99 +1617,99 @@ function App() {
                             <h2>Warrior Skills</h2>
                             <OneSkill
                                 skill={skills.archery}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.block}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.heavyarmor}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.onehanded}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.smithing}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.twohanded}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                         </div>
                         <div>
                             <h2>Mage Skills</h2>
                             <OneSkill
                                 skill={skills.alteration}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.conjuration}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.destruction}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.enchanting}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.illusion}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.restoration}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                         </div>
                         <div>
                             <h2>Thief Skills</h2>
                             <OneSkill
                                 skill={skills.alchemy}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.lightarmor}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.lockpicking}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.pickpocket}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.sneak}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.speech}
-                                handleOnCheckedSkill={handleOnCheckedSkill}
-                                handleOnSkillChange={handleOnSkillChange}>
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                            >
                             </OneSkill>
                         </div>
                     </div>
