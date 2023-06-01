@@ -5,6 +5,7 @@ const OneSkill = (props) => {
     const handleOnCheckedSkill = props.handleOnCheckedSkill
     const handleOnSkillChange = props.handleOnSkillChange
     const [showPerks, setShowPerks] = useState(false)
+
     // console.log(skill.perks)
 
     const [allPerks, setAllPerks] = useState(skill.perks)
@@ -41,11 +42,11 @@ const OneSkill = (props) => {
                     // console.log(onePerk)
                     if ("rank" in allPerks[onePerk]) {
                         // console.log("haggling perk")
-                        console.log(allPerks[onePerk])
+                        // console.log(allPerks[onePerk])
                         for (let key in allPerks[onePerk].rank) {
                             rankedPerksArr.push(allPerks[onePerk].rank[key])
                             // console.log(key)
-                            console.log(allPerks[onePerk].rank[key].description)
+                            // console.log(allPerks[onePerk].rank[key].description)
                         }
                     }
 
@@ -61,7 +62,6 @@ const OneSkill = (props) => {
 
                                 </div>
                                 {allPerks[onePerk].description && <p>{allPerks[onePerk].description}</p>}
-                                <br />
                                 {rankedPerksArr.map((val) => {
                                     return (
                                         <div>

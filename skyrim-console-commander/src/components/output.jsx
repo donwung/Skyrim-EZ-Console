@@ -10,11 +10,7 @@ const Output = (props) => {
             {/* TODO: print all keyvals */}
             <p>{JSON.stringify(skills)}</p>
 
-            {Object.keys(skills).map((skillName) => {
-                return (
-                    <p>player.setav {skillName} {skills[skillName]}</p>
-                )
-            })}
+            
         </div>
     )
 }
