@@ -673,20 +673,22 @@ function App() {
                     "selected": false,
                 },
                 "Experimenter": {
-                    "1": {
-                        "description": "Eating an ingredient reveals first two effects.",
-                        "ID": "00058218",
-                        "selected": false,
-                    },
-                    "2": {
-                        "description": "Eating an ingredient reveals first three effects.",
-                        "ID": "00105f2a",
-                        "selected": false,
-                    },
-                    "3": {
-                        "description": "Eating an ingredient reveals all its effects.",
-                        "ID": "00105f2b",
-                        "selected": false,
+                    "rank": {
+                        "1": {
+                            "description": "Eating an ingredient reveals first two effects.",
+                            "ID": "00058218",
+                            "selected": false,
+                        },
+                        "2": {
+                            "description": "Eating an ingredient reveals first three effects.",
+                            "ID": "00105f2a",
+                            "selected": false,
+                        },
+                        "3": {
+                            "description": "Eating an ingredient reveals all its effects.",
+                            "ID": "00105f2b",
+                            "selected": false,
+                        }
                     }
                 },
                 "Poisoner": {
@@ -1153,7 +1155,7 @@ function App() {
             "selected": false,
             "perks": {
                 "Juggernaut": {
-                    "ranks": {
+                    "rank": {
                         "1": {
                             "description": "Increases armor rating for Heavy Armor by 20%.[1]",
                             "ID": "000bcd2a",
@@ -1562,7 +1564,7 @@ function App() {
         }
     }
 
-    console.log(skills.archery.perks.overdraw.rank[1].ID)
+    // console.log(skills.archery.perks.overdraw.rank[1].ID)
 
     // TODO: condense checking and updating skill
     // 
@@ -1692,7 +1694,7 @@ function App() {
                         </div>
                         <div>
                             <h2>Thief Skills</h2>
-                            {/* <OneSkill
+                            <OneSkill
                                 skill={skills.alchemy}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
@@ -1716,7 +1718,7 @@ function App() {
                                 skill={skills.sneak}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill> */}
+                            </OneSkill>
                             <OneSkill
                                 skill={skills.speech}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
