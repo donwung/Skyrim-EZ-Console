@@ -1540,12 +1540,38 @@ function App() {
         console.log(e)
     }
 
+    const [finalizedSkills, setFinalizedSkills] = useState({
+        "skills": [], // {skillname : desiredlevel}, {skillname : desiredlevel}, {skillname : desiredlevel}, etc
+    })
+    const [finalizedPerks, setFinalizedPerks] = useState({
+        "perks": [] // {perkname : perkid}, {perkname : perkid}, {perkname : perkid}, etc
+    })
+
+
+    // DEBUG:
+    const updateSkills = () => {
+
+
+        for (const [key, value] of Object.entries(skills)) {
+            if (value.selected) {
+                console.log(key, value);
+
+                // setFinalizedSkills([...finalizedSkills], finalizedSkills.skills.push({[key]: value)})
+            }
+        }
+
+        console.log("updated my skills")
+        console.log(finalizedSkills)
+    }
+
+
+
     const handleOnCheckedSkill = (skillName) => {
         let updatedSkill = {
             [skillName]: {}
         };
 
-        console.log(skillName)
+        // console.log(skillName)
         if (skillName in skills) {
             // console.log("in skills")
             // console.log(skills[skillName])
@@ -1562,6 +1588,8 @@ function App() {
             // console.log({ ...skills, [skillName]: updatedSkill[skillName] })
             setSkills({ ...skills, [skillName]: updatedSkill[skillName] })
         }
+
+        updateSkills()
     }
 
     // console.log(skills.archery.perks.overdraw.rank[1].ID)
@@ -1587,32 +1615,13 @@ function App() {
             console.log(updatedSkill)
             setSkills({ ...skills, [skillName]: updatedSkill[skillName] })
         }
+
+        updateSkills()
     }
 
 
-    // DEBUG:
-    const printAllSelected = () => {
-        const allSelected = []
-        let ret = "";
 
 
-        for (const [key, value] of Object.entries(skills)) {
-            if (value.selected) {
-                console.log(key, value);
-                allSelected.push({
-                    [key]: value
-                })
-                ret += "player.setav " + value.technicalName + " " + value.level + " |||| "
-            }
-        }
-
-
-        return (
-            <div style={{ width: "50%" }}>
-                {ret}
-            </div>
-        )
-    }
 
     return (
         <div className="App">
@@ -1627,7 +1636,7 @@ function App() {
                 <form onSubmit={(e) => { handleOnSkillSubmit(e) }}>
                     <div style={{ display: "flex" }} >
                         <div>
-                            {/* <h2>Warrior Skills</h2>
+                            <h2>Warrior Skills</h2>
                             <OneSkill
                                 skill={skills.archery}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
@@ -1657,10 +1666,10 @@ function App() {
                                 skill={skills.twohanded}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill> */}
+                            </OneSkill>
                         </div>
                         <div>
-                            {/* <h2>Mage Skills</h2>
+                            <h2>Mage Skills</h2>
                             <OneSkill
                                 skill={skills.alteration}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
@@ -1690,7 +1699,7 @@ function App() {
                                 skill={skills.restoration}
                                 handleOnCheckedSkill={handleOnCheckedSkill}
                                 handleOnSkillChange={handleOnSkillChange}>
-                            </OneSkill> */}
+                            </OneSkill>
                         </div>
                         <div>
                             <h2>Thief Skills</h2>
@@ -1729,19 +1738,19 @@ function App() {
                     <button>Submit</button>
                 </form>
                 <button onClick={() => console.log(skills)}>DEBUG CLG</button>
-                {
-                    printAllSelected()
-                }
-                {/* <div>
-            <label>Enchanting</label>
-            <input type="number" onChange={(e) => handleOnSkillChange(e, "enchanting")}></input>
-            </div>
-          <button type="submit">Submit</button> */}
                 {/* <Output skills={skills}></Output> */}
-                {/* <p>
-
-                    {JSON.stringify(skills)}
-                </p> */}
+                {
+                    finalizedSkills.skills.map((skill) => {
+                        console.log(skill)
+                        console.log("printing final skills")
+                        return (
+                            <div>
+                                <p>These are my skills</p>
+                                {/* <p>{skill}</p> */}
+                            </div>
+                        )
+                    })
+                }
             </div >
         </div >
     )
