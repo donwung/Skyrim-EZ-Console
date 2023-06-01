@@ -29,9 +29,7 @@ const OneSkill = (props) => {
                     value={skill.selected ? skill.level : 0}
                 ></input>
             </div>
-            
             <ShowPerks perks={allPerks}></ShowPerks>
-            
         </div>
     )
 }

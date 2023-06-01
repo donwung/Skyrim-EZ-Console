@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Output from './components/output'
+import SkillOutput from './components/skillOutput'
 import OneSkill from './components/oneSkill'
 
 function App() {
@@ -1547,23 +1547,6 @@ function App() {
         "perks": [] // {perkname : perkid}, {perkname : perkid}, {perkname : perkid}, etc
     })
 
-
-    // // DEBUG:
-    // const updateSkills = () => {
-
-
-    //     for (const [key, value] of Object.entries(skills)) {
-    //         if (value.selected) {
-    //             console.log(key, value);
-
-    //             // setFinalizedSkills([...finalizedSkills], finalizedSkills.skills.push({[key]: value)})
-    //         }
-    //     }
-
-    //     console.log("updated my skills")
-    //     console.log(finalizedSkills)
-    // }
-
     const handleOnUpdateSkill = (e, updateType) => {
         // console.log(e.target.name)
         // console.log(e.target.value)
@@ -1716,19 +1699,8 @@ function App() {
                     <button>Submit</button>
                 </form>
                 <button onClick={() => console.log(skills)}>DEBUG CLG</button>
-                {/* <Output skills={skills}></Output> */}
-                {
-                    finalizedSkills.skills.map((skill) => {
-                        console.log(skill)
-                        console.log("printing final skills")
-                        return (
-                            <div>
-                                <p>These are my skills</p>
-                                {/* <p>{skill}</p> */}
-                            </div>
-                        )
-                    })
-                }
+                <SkillOutput skills={skills}></SkillOutput>
+                {/* <PerkOutput></PerkOutput> */}
             </div >
         </div >
     )
