@@ -2,32 +2,20 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import SkillOutput from './components/skillOutput'
+import PerkOutput from './components/perkOutput'
 import OneSkill from './components/oneSkill'
 import data from './components/data'
 
 function App() {
-    const [count, setCount] = useState(0)
-
-    // TODO: add perks
-    // TODO: refactor and move the data to another file
-
-    // NOTE: two tabs for schools, four tabs for perks, six tabs for perk RANK
     const [skills, setSkills] = useState(data);
     const [allSelected, setAllSelected] = useState([])
 
-    const [isAdding, setIsAdding] = useState(true);
+    const [perksOutput, setPerksOutput] = useState([]);
 
     const handleOnSkillSubmit = (e) => {
         e.preventDefault()
         console.log(e)
     }
-
-    const [finalizedSkills, setFinalizedSkills] = useState({
-        "skills": [], // {skillname : desiredlevel}, {skillname : desiredlevel}, {skillname : desiredlevel}, etc
-    })
-    const [finalizedPerks, setFinalizedPerks] = useState({
-        "perks": [] // {perkname : perkid}, {perkname : perkid}, {perkname : perkid}, etc
-    })
 
     const handleOnUpdateSkill = (e, updateType) => {
         // console.log(e.target.name)
@@ -62,9 +50,32 @@ function App() {
         }
     }
 
+    const handleOnSetPerksOutput = (perk) => {
+        console.log(perk.name)
+        console.log(perk.description)
+        console.log(perk.ID)
 
+        const updated = {
+            name: perk.name,
+            ID: perk.ID
+        }
 
+        // if (!(updated in perksOutput)) {
 
+        // }
+        console.log(perksOutput.length)
+
+        let canAppend = true;
+        for (let i = 0; i < perksOutput.length; i++) {
+            console.log(i)
+            if (perksOutput[i].ID === updated.ID) {
+                canAppend = false;
+            }
+        }
+        console.log(canAppend)
+        canAppend && setPerksOutput([...perksOutput, updated])
+        console.log(perksOutput)
+    }
 
     return (
         <div className="App">
@@ -83,31 +94,37 @@ function App() {
                             <OneSkill
                                 skill={skills.archery}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.block}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.heavyarmor}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.onehanded}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.smithing}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.twohanded}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                         </div>
@@ -116,31 +133,37 @@ function App() {
                             <OneSkill
                                 skill={skills.alteration}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.conjuration}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.destruction}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.enchanting}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.illusion}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.restoration}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                         </div>
@@ -149,31 +172,37 @@ function App() {
                             <OneSkill
                                 skill={skills.alchemy}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.lightarmor}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.lockpicking}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.pickpocket}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.sneak}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                             <OneSkill
                                 skill={skills.speech}
                                 handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
                             >
                             </OneSkill>
                         </div>
@@ -181,8 +210,10 @@ function App() {
                     <button>Submit</button>
                 </form>
                 <button onClick={() => console.log(skills)}>DEBUG CLG</button>
-                <SkillOutput skills={skills}></SkillOutput>
-                {/* <PerkOutput></PerkOutput> */}
+                <div style={{ display: "flex", justifyContent: "space-around" }}>
+                    <SkillOutput skills={skills}></SkillOutput>
+                    <PerkOutput perks={perksOutput}></PerkOutput>
+                </div>
             </div >
         </div >
     )
