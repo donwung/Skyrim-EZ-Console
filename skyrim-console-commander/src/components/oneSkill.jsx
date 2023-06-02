@@ -4,8 +4,6 @@ import ShowPerks from "./showPerks"
 const OneSkill = (props) => {
     const skill = props.skill
     const handleOnUpdateSkill = props.handleOnUpdateSkill
-    const handleOnCheckedSkill = props.handleOnCheckedSkill
-    const handleOnSkillChange = props.handleOnSkillChange
 
     // console.log(skill.perks)
 
@@ -29,7 +27,7 @@ const OneSkill = (props) => {
                     value={skill.selected ? skill.level : 0}
                 ></input>
             </div>
-            <ShowPerks perks={allPerks}></ShowPerks>
+            <ShowPerks perks={allPerks} handleOnSetPerksOutput={props.handleOnSetPerksOutput}></ShowPerks>
         </div>
     )
 }
