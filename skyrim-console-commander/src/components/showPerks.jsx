@@ -7,12 +7,12 @@ const ShowPerks = (props) => {
 
     return (
         <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}>
-            <p >
-                Show Perks
+            <p>
+                Mouse Over To Show Perks
             </p>
 
             {/* Perks Box */}
-            <div style={showPerks ? { backgroundColor: "green" } : { display: "none" }}>
+            <div style={showPerks ? { backgroundColor: "" } : { display: "none" }}>
                 {Object.keys(allPerks).map((onePerk) => {
                     const rankedPerksArr = []
                     if ("rank" in allPerks[onePerk]) {
