@@ -77,138 +77,144 @@ function App() {
         console.log(perksOutput)
     }
 
+    const onWheel = e => {
+        // e.preventDefault();
+        const container = document.getElementById("classifications");
+        const containerScrollPosition = document.getElementById("classifications").scrollLeft;
+        container.scrollTo({
+            top: 0,
+            left: containerScrollPosition + e.deltaY,
+            behaviour: "smooth"
+        });
+    };
+
+
+
     return (
         <div className="App">
             <h1>
                 Skyrim Console Commander
             </h1>
             <div>
-                <h2>TODO: to *JUST* SET</h2>
-                <h2>Select a stat to SET:</h2>
-                {/* TODO: Add the rest of the attributes */}
-
-                <form onSubmit={(e) => { handleOnSkillSubmit(e) }}>
-                    <div style={{ display: "flex" }} >
-                        <div>
-                            <h2>Warrior Skills</h2>
-                            <OneSkill
-                                skill={skills.archery}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.block}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.heavyarmor}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.onehanded}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.smithing}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.twohanded}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                        </div>
-                        <div>
-                            <h2>Mage Skills</h2>
-                            <OneSkill
-                                skill={skills.alteration}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.conjuration}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.destruction}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.enchanting}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.illusion}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.restoration}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                        </div>
-                        <div>
-                            <h2>Thief Skills</h2>
-                            <OneSkill
-                                skill={skills.alchemy}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.lightarmor}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.lockpicking}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.pickpocket}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.sneak}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                            <OneSkill
-                                skill={skills.speech}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                            >
-                            </OneSkill>
-                        </div>
+                <div className="classifications" onWheel={onWheel} id="classifications">
+                    <div className="classifications_div">
+                        <h2>Warrior Skills</h2>
+                        <OneSkill
+                            skill={skills.archery}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.block}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.heavyarmor}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.onehanded}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.smithing}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.twohanded}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
                     </div>
-                    <button>Submit</button>
-                </form>
+                    <div className="classifications_div">
+                        <h2>Mage Skills</h2>
+                        <OneSkill
+                            skill={skills.alteration}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.conjuration}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.destruction}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.enchanting}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.illusion}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.restoration}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                    </div>
+                    <div className="classifications_div">
+                        <h2>Thief Skills</h2>
+                        <OneSkill
+                            skill={skills.alchemy}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.lightarmor}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.lockpicking}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.pickpocket}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.sneak}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                        <OneSkill
+                            skill={skills.speech}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                        >
+                        </OneSkill>
+                    </div>
+                </div>
                 <button onClick={() => console.log(skills)}>DEBUG CLG</button>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <SkillOutput skills={skills}></SkillOutput>
