@@ -3,57 +3,47 @@ import { useState } from "react"
 const ShowPerks = (props) => {
     const [showPerks, setShowPerks] = useState(false)
     const allPerks = props.perks
-
+    const handleOnSetPerksOutput = props.handleOnSetPerksOutput
 
     return (
-        <div>
-            <p onClick={() => setShowPerks(!showPerks)}>
+        <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}>
+            <p >
                 Show Perks
             </p>
+
+            {/* Perks Box */}
             <div style={showPerks ? { backgroundColor: "green" } : { display: "none" }}>
-                {/* {showPerks(skill.perks)} */}
-                {/* BUG: cannot print out multilevel perks */}
-                {/* TODO: style buttons to look "normal" */}
-                {/* TODO: make buttons add to skyrim console output */}
-                {/* TODO: move perks to another component */}
                 {Object.keys(allPerks).map((onePerk) => {
                     const rankedPerksArr = []
-                    // console.log(onePerk)
                     if ("rank" in allPerks[onePerk]) {
-                        // console.log("haggling perk")
-                        // console.log(allPerks[onePerk])
                         for (let key in allPerks[onePerk].rank) {
                             rankedPerksArr.push(allPerks[onePerk].rank[key])
-                            // console.log(key)
-                            // console.log(allPerks[onePerk].rank[key].description)
                         }
                     }
-
-
                     return (
                         <div>
                             <p style={{ textAlign: "left" }}>
-
                                 <h2>
                                     {onePerk}:
                                 </h2>
                                 <div style={{ border: "2px solid white" }}>
-
                                 </div>
-                                {allPerks[onePerk].description && <p>{allPerks[onePerk].description}</p>}
+
                                 {rankedPerksArr.map((val) => {
                                     return (
                                         <div>
                                             <p>{val.description}</p>
-                                            <button type="button" onClick={() => { console.log(val.ID) }}>
+                                            <button type="button" onClick={() => { handleOnSetPerksOutput(val) }}>
                                                 ID: {val.ID}
                                             </button>
                                         </div>
                                     )
                                 })}
+
+                                {allPerks[onePerk].description && <p>{allPerks[onePerk].description}</p>}
                                 {
                                     allPerks[onePerk].ID &&
-                                    <button type="button" onClick={() => { console.log(allPerks[onePerk].ID) }}>
+                                    <button type="button" onClick={() => { handleOnSetPerksOutput(allPerks[onePerk]) }}>
                                         ID: {allPerks[onePerk].ID}
                                     </button>
                                 }
