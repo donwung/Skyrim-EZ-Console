@@ -18,8 +18,13 @@ const OneSkill = (props) => {
                     type="checkbox"
                     name={skill.name.replace(/\s/g, '').toLowerCase()}
                     onChange={(e) => { handleOnUpdateSkill(e, "check") }}
+                    id={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}
+                    hidden
                 ></input>
-                <label>{skill.name}</label>
+                <label
+                    className="glow"
+                    for={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
+                    {skill.name}</label>
                 <input
                     type="number"
                     name={skill.name.replace(/\s/g, '').toLowerCase()}

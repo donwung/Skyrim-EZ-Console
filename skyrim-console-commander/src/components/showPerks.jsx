@@ -6,13 +6,15 @@ const ShowPerks = (props) => {
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
 
     return (
-        <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}>
+        // DEBUG: uncomment this for original code
+        <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}> 
+        {/* // <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
             <p>
                 Mouse Over To Show Perks
             </p>
 
             {/* Perks Box */}
-            <div style={showPerks ? { backgroundColor: "" } : { display: "none" }}>
+            <div className={showPerks ? "perksBox_show" : "perksBox_hide"}>
                 {Object.keys(allPerks).map((onePerk) => {
                     const rankedPerksArr = []
                     if ("rank" in allPerks[onePerk]) {
@@ -29,12 +31,14 @@ const ShowPerks = (props) => {
                                 <div style={{ border: "2px solid white" }}>
                                 </div>
 
+                                {/* TODO: move perk buttons to toggle button visibility on description mouseover */}
                                 {rankedPerksArr.map((val) => {
                                     return (
                                         <div>
                                             <p>{val.description}</p>
                                             <button type="button" onClick={() => { handleOnSetPerksOutput(val) }}>
-                                                ID: {val.ID}
+                                                {/* ID: {val.ID} */}
+                                                Add {val.name}
                                             </button>
                                         </div>
                                     )
@@ -44,7 +48,8 @@ const ShowPerks = (props) => {
                                 {
                                     allPerks[onePerk].ID &&
                                     <button type="button" onClick={() => { handleOnSetPerksOutput(allPerks[onePerk]) }}>
-                                        ID: {allPerks[onePerk].ID}
+                                        {/* ID: {allPerks[onePerk].ID} */}
+                                        Add {allPerks[onePerk].name}
                                     </button>
                                 }
                             </p>
