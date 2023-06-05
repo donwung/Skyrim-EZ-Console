@@ -1,6 +1,6 @@
 const PerkOutput = (props) => {
     const output = props.perks
-    console.log(output)
+    // console.log(output)
 
     return (
         <div>

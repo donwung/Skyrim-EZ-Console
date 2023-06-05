@@ -21,16 +21,22 @@ const OneSkill = (props) => {
                     id={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}
                     hidden
                 ></input>
-                <label
-                    className="glow"
-                    for={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
-                    {skill.name}</label>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <label
+                        className="glow"
+                        for={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
+                        {skill.name}</label>
+                    <>{skill.level}</>
+                </div>
                 <input
-                    type="number"
+                    type="range"
                     name={skill.name.replace(/\s/g, '').toLowerCase()}
                     onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
+                    onMouseUp={() => console.log("set " + skill.name + " to " + skill.level)}
                     value={skill.selected ? skill.level : 0}
+                    style={{width: "100%"}}
                 ></input>
+
             </div>
             <ShowPerks perks={allPerks} handleOnSetPerksOutput={props.handleOnSetPerksOutput}></ShowPerks>
         </div>

@@ -3,7 +3,7 @@ import { useState } from "react";
 const Output = (props) => {
     const { skills } = props;
     const [selectedSkills, setSelectedSkills] = useState([])
-    console.log(skills)
+    // console.log(skills)
 
 
     let selectedArr = [];
