@@ -10,11 +10,11 @@ const ShowPerks = (props) => {
 
     return (
         // DEBUG: uncomment this for original code
-        // <div
-        //     style={{ backgroundColor: "green", width: "20%" }}
-        //     onMouseEnter={() => setShowPerks(true)}
-        //     onMouseLeave={() => setShowPerks(false)}>
-        <div style={{ backgroundColor: "green", width: "20%" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}>
+        <div
+            style={{ backgroundColor: "green", width: "20%" }}
+            onMouseEnter={() => setShowPerks(true)}
+            onMouseLeave={() => setShowPerks(false)}>
+            {/* <div style={{ backgroundColor: "green", width: "20%" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
             <div style={{ display: "flex" }}>
                 <p>
                     Open Perks {">>"}
@@ -32,7 +32,7 @@ const ShowPerks = (props) => {
                         // }
                         return (<ShowRankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowRankedPerk>)
                     } else {
-                        // return (<ShowUnrankedPerk perk={onePerk}></ShowUnrankedPerk>)
+                        return (<ShowUnrankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowUnrankedPerk>)
                     }
                     // return (
                     //     // HACK: this isn't safe 

@@ -5,9 +5,9 @@ const ShowRankedPerk = props => {
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
     const [selectedPerkRank, setSelectedPerkRank] = useState(1)
     // NOTE: perks must be referred to by their rank
-    console.log(perk)
+    // console.log(perk)
     // console.log(perk.rank[1])
-    console.log(Object.keys(perk.rank))
+    // console.log(Object.keys(perk.rank))
     const ranks = Object.keys(perk.rank);
     return (
         <div style={{ marginBottom: "50px" }}>
