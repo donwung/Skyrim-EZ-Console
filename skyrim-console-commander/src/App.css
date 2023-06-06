@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  margin: 0px;
+  padding: 0px;
   text-align: center;
 }
 
@@ -22,6 +22,10 @@
   */
   -ms-user-select: none;
   user-select: none;
+}
+
+body {
+  overflow-y: hidden;
 }
 
 .perksBox {
@@ -76,3 +80,59 @@
   text-shadow: 0 0 5px #fff;
   transition: all 0.2s ease-in-out;
 }
+
+.skillSlider {
+  width: 100%;
+}
+
+.inputWindow {
+  width: 50vw;
+  background-color: rebeccapurple;
+}
+
+
+.consoleWrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  transition: all 0.3s ease-in-out
+}
+
+.consoleWindow {
+  text-align: left;
+  display: block;
+  justify-content: space-around;
+  bottom: 0px;
+  width: 100%;
+  height: 0px;
+  border-top: 4px solid white;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.consoleThumb {
+  width: 35px;
+  padding: 40px 40px 40px 40px;
+  margin: auto;
+  position: relative;
+  top: 50px;
+}
+
+.opened {
+  height: 400px;
+}
+
+.closed:hover {
+  height: 100px;
+}
+
+.peek {
+  height: 100px;
+}
+
+/* .consoleWrapper:hover>.closed:hover {
+  height: 200px;
+} */
+
+/* PREPARE FOR RANGE SLIDER NIGHTMARE */
+/* https://toughengineer.github.io/demo/slider-styler/slider-styler.html */

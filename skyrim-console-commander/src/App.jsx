@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import SkillOutput from './components/skillOutput'
-import PerkOutput from './components/perkOutput'
+
 import OneSkill from './components/oneSkill'
 import data from './components/data'
 import WarriorSliders from './components/warriorSliders'
 import MageSliders from './components/mageSliders'
 import ThiefSliders from './components/thiefSliders'
 import { Link, Route, Routes, Navigate } from "react-router-dom";
-
+import ConsoleBar from './components/consoleBar'
 
 function App() {
     const [skills, setSkills] = useState(data);
@@ -88,65 +87,66 @@ function App() {
         });
     };
 
-    const handleOnPeekConsole = () => {
-
+    const handleOnPeekConsole = (visible) => {
+        console.log("peek")
+        // if (!openConsole) {
+        //     setConsoleVisibility(visible ? { opacity: "50%" } : { opacity: "0%" })
+        // }
     }
 
     const handleOnShowConsole = () => {
-
+        console.log("view")
+        // setOpenConsole(!openConsole)
+        // setConsoleVisibility({ display: "" })
     }
+
+
+
+
 
     return (
         <div className="App">
-            <div>
-                Input/Output Log
-            </div>
-            <div>
-                School selection
-            </div>
-            <div>
-                Sliders
-                <div style={{ display: "flex", gap: "20px" }}>
-                    <Link to="warrior/">Link to warrior</Link>
-                    <Link to="thief/">Link to thief</Link>
-                    <Link to="mage/">Link to mage</Link>
+            <div className="inputWindow">
+                <div>
+                    School selection
                 </div>
-                <Routes>
-                    <Route path="/" element={<Navigate to="/warrior" replace></Navigate>}></Route>
-                    <Route path="warrior" element={
-                        <WarriorSliders
-                            skills={skills}
-                            handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
-                        </WarriorSliders>}>
-                    </Route>
-                    <Route path="mage" element={
-                        <MageSliders
-                            skills={skills}
-                            handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
-                        </MageSliders>}>
-                    </Route>
-                    <Route path="thief" element={
-                        <ThiefSliders
-                            skills={skills}
-                            handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
-                        </ThiefSliders>}>
-                    </Route>
-                </Routes>
-            </div >
-            <div
-                onMouseEnter={() => handleOnPeekConsole()}
-                onClick={() => handleOnShowConsole()}
-            >
-                {/* <button onClick={() => console.log(skills)}>DEBUG CLG</button> */}
-                <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    <SkillOutput skills={skills}></SkillOutput>
-                    <PerkOutput perks={perksOutput}></PerkOutput>
-                </div>
-            </div >
-        </div >
+                <div>
+                    Sliders
+                    <div style={{ display: "flex", gap: "20px" }}>
+                        <Link to="warrior/">Link to warrior</Link>
+                        <Link to="thief/">Link to thief</Link>
+                        <Link to="mage/">Link to mage</Link>
+                    </div>
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/warrior" replace></Navigate>}></Route>
+                        <Route path="warrior" element={
+                            <WarriorSliders
+                                skills={skills}
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
+                                style={{ backgroundColor: "orange" }}>
+                            </WarriorSliders>}>
+                        </Route>
+                        <Route path="mage" element={
+                            <MageSliders
+                                skills={skills}
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                            </MageSliders>}>
+                        </Route>
+                        <Route path="thief" element={
+                            <ThiefSliders
+                                skills={skills}
+                                handleOnUpdateSkill={handleOnUpdateSkill}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                            </ThiefSliders>}>
+                        </Route>
+                    </Routes>
+                </div >
+            </div>
+            <ConsoleBar skills={skills} perksOutput={perksOutput}></ConsoleBar>
+
+        </div>
     )
 }
 
