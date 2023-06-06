@@ -33,12 +33,12 @@ body {
   display: none;
 }
 
-.perksBox_hide {
+.hidden {
   display: none
 }
 
 .perksBox_show {
-  background-color: green;
+  /* background-color: green; */
   position: fixed;
   top: 0px;
   right: 0px;
@@ -46,6 +46,24 @@ body {
   width: 50vw;
   overflow: scroll;
   overflow-x: hidden;
+  border-left: 1px solid white;
+  /* right: -50px; */
+  /* padding-left: 50px; */
+}
+
+.perksBox_selectRune {
+  display: block;
+  position: relative;
+  left: 50px;
+  z-index: 99;
+}
+
+.perkName {
+  text-align: center;
+}
+
+.perkDescription {
+  text-align: center;
 }
 
 .classifications_div {
