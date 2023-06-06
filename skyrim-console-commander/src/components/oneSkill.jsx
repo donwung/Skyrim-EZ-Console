@@ -13,32 +13,36 @@ const OneSkill = (props) => {
 
     return (
         <div>
-            <div style={{ color: skill.selected ? "green" : "grey" }}>
-                <input
-                    type="checkbox"
-                    name={skill.name.replace(/\s/g, '').toLowerCase()}
-                    onChange={(e) => { handleOnUpdateSkill(e, "check") }}
-                    id={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}
-                    hidden
-                ></input>
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <label
-                        className="glow"
-                        for={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
-                        {skill.name}</label>
-                    <>{skill.level}</>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "10px" }}>
+                <div style={{ color: skill.selected ? "white" : "grey", width: "100%" }}>
+                    <input
+                        type="checkbox"
+                        name={skill.name.replace(/\s/g, '').toLowerCase()}
+                        onChange={(e) => { handleOnUpdateSkill(e, "check") }}
+                        id={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}
+                        hidden
+                    ></input>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <label
+                            className="glow"
+                            htmlFor={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
+                            {skill.name}</label>
+                        <>{skill.level}</>
+                    </div>
+                    <input
+                        type="range"
+                        name={skill.name.replace(/\s/g, '').toLowerCase()}
+                        onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
+                        // onMouseUp={() => console.log("set " + skill.name + " to " + skill.level)}
+                        value={skill.selected ? skill.level : 0}
+                        className="skillSlider"
+                    ></input>
                 </div>
-                <input
-                    type="range"
-                    name={skill.name.replace(/\s/g, '').toLowerCase()}
-                    onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
-                    onMouseUp={() => console.log("set " + skill.name + " to " + skill.level)}
-                    value={skill.selected ? skill.level : 0}
-                    style={{width: "100%"}}
-                ></input>
-
+                <ShowPerks
+                    perks={allPerks}
+                    handleOnSetPerksOutput={props.handleOnSetPerksOutput}
+                ></ShowPerks>
             </div>
-            <ShowPerks perks={allPerks} handleOnSetPerksOutput={props.handleOnSetPerksOutput}></ShowPerks>
         </div>
     )
 }

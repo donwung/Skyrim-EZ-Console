@@ -7,10 +7,10 @@ const ShowPerks = (props) => {
 
     return (
         // DEBUG: uncomment this for original code
-        <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}> 
-        {/* // <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
+        <div style={{ backgroundColor: "green" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(false)}>
+            {/* <div onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
             <p>
-                Mouse Over To Show Perks
+                Open Perks {">>"}
             </p>
 
             {/* Perks Box */}
@@ -23,18 +23,19 @@ const ShowPerks = (props) => {
                         }
                     }
                     return (
-                        <div>
-                            <p style={{ textAlign: "left" }}>
+                        // HACK: this isn't safe 
+                        // TODO: refactor perk printing
+                        <div key={onePerk}>
+                            <div style={{ textAlign: "left" }}>
                                 <h2>
                                     {onePerk}:
                                 </h2>
                                 <div style={{ border: "2px solid white" }}>
                                 </div>
 
-                                {/* TODO: move perk buttons to toggle button visibility on description mouseover */}
                                 {rankedPerksArr.map((val) => {
                                     return (
-                                        <div>
+                                        <div key={val.ID}>
                                             <p>{val.description}</p>
                                             <button type="button" onClick={() => { handleOnSetPerksOutput(val) }}>
                                                 {/* ID: {val.ID} */}
@@ -52,7 +53,7 @@ const ShowPerks = (props) => {
                                         Add {allPerks[onePerk].name}
                                     </button>
                                 }
-                            </p>
+                            </div>
                         </div>
                     )
                 })}
