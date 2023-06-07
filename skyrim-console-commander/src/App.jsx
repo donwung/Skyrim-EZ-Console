@@ -59,9 +59,6 @@ function App() {
             ID: perk.ID
         }
 
-        // if (!(updated in perksOutput)) {
-
-        // }
         console.log(perksOutput.length)
 
         let canAppend = true;
@@ -76,73 +73,33 @@ function App() {
         console.log(perksOutput)
     }
 
-    const onWheel = e => {
-        // e.preventDefault();
-        const container = document.getElementById("classifications");
-        const containerScrollPosition = document.getElementById("classifications").scrollLeft;
-        container.scrollTo({
-            top: 0,
-            left: containerScrollPosition + e.deltaY,
-            behaviour: "smooth"
-        });
-    };
-
-    const handleOnPeekConsole = (visible) => {
-        console.log("peek")
-        // if (!openConsole) {
-        //     setConsoleVisibility(visible ? { opacity: "50%" } : { opacity: "0%" })
-        // }
-    }
-
-    const handleOnShowConsole = () => {
-        console.log("view")
-        // setOpenConsole(!openConsole)
-        // setConsoleVisibility({ display: "" })
-    }
-
-
-
-
-
     return (
         <div className="App">
             <div className="inputWindow">
-                <div>
-                    School selection
-                </div>
-                <div>
-                    Sliders
-                    <div style={{ display: "flex", gap: "20px" }}>
-                        <Link to="warrior/">Link to warrior</Link>
-                        <Link to="thief/">Link to thief</Link>
-                        <Link to="mage/">Link to mage</Link>
-                    </div>
-                    <Routes>
-                        <Route path="/" element={<Navigate to="/warrior" replace></Navigate>}></Route>
-                        <Route path="warrior" element={
-                            <WarriorSliders
-                                skills={skills}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}
-                                style={{ backgroundColor: "orange" }}>
-                            </WarriorSliders>}>
-                        </Route>
-                        <Route path="mage" element={
-                            <MageSliders
-                                skills={skills}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}>
-                            </MageSliders>}>
-                        </Route>
-                        <Route path="thief" element={
-                            <ThiefSliders
-                                skills={skills}
-                                handleOnUpdateSkill={handleOnUpdateSkill}
-                                handleOnSetPerksOutput={handleOnSetPerksOutput}>
-                            </ThiefSliders>}>
-                        </Route>
-                    </Routes>
-                </div >
+                <Routes>
+                    <Route path="/" element={<Navigate to="/warrior" replace></Navigate>}></Route>
+                    <Route path="warrior" element={
+                        <WarriorSliders
+                            skills={skills}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                        </WarriorSliders>}>
+                    </Route>
+                    <Route path="mage" element={
+                        <MageSliders
+                            skills={skills}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                        </MageSliders>}>
+                    </Route>
+                    <Route path="thief" element={
+                        <ThiefSliders
+                            skills={skills}
+                            handleOnUpdateSkill={handleOnUpdateSkill}
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                        </ThiefSliders>}>
+                    </Route>
+                </Routes>
             </div>
             <ConsoleBar skills={skills} perksOutput={perksOutput}></ConsoleBar>
 

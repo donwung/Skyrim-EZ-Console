@@ -17,6 +17,7 @@ const ConsoleBar = props => {
                 onClick={() => setOpenConsole(!openConsole)}
             // onClick={() => setOpenConsole(!openConsole)}
             >
+                {/* <button></button> */}
                 <img
                     src={selectRune}
                     onClick={() => setOpenConsole(!openConsole)}

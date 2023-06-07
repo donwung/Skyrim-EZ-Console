@@ -11,7 +11,7 @@ const ShowPerks = (props) => {
     return (
         // DEBUG: uncomment this for original code
         <div
-            style={{ backgroundColor: "green", width: "20%" }}
+            style={{ backgroundColor: "", width: "20%" }}
             onMouseEnter={() => setShowPerks(true)}
             onMouseLeave={() => setShowPerks(false)}>
             {/* <div style={{ backgroundColor: "green", width: "20%" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
@@ -24,12 +24,9 @@ const ShowPerks = (props) => {
 
             {/* Perks Box */}
             <div className={showPerks ? "perksBox_show" : "hidden"}>
+                <div className="spacer"></div>
                 {Object.keys(allPerks).map((onePerk) => {
-                    const rankedPerksArr = []
                     if ("rank" in allPerks[onePerk]) {
-                        // for (let key in allPerks[onePerk].rank) {
-                        //     rankedPerksArr.push(allPerks[onePerk].rank[key])
-                        // }
                         return (<ShowRankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowRankedPerk>)
                     } else {
                         return (<ShowUnrankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowUnrankedPerk>)
@@ -85,6 +82,7 @@ const ShowPerks = (props) => {
                     //     </div>
                     // )
                 })}
+                <div className="spacer_end"></div>
             </div>
         </div>
     )
