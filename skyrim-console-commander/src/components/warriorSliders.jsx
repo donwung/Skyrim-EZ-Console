@@ -1,4 +1,6 @@
 import OneSkill from "./oneSkill";
+import { Link, Route, Routes, Navigate } from "react-router-dom";
+
 
 const WarriorSliders = props => {
     const skills = props.skills;
@@ -7,8 +9,18 @@ const WarriorSliders = props => {
     console.log(skills)
 
     return (
-        <div>
-            <h2>Warrior Skills</h2>
+        <div className="warriorInput">
+            <div className="navHeader">
+                <Link to="../mage/">
+                    <h2>Mage</h2>
+                </Link>
+                {/* <Link to="../warrior/"> */}
+                <h1>Warrior</h1>
+                {/* </Link> */}
+                <Link to="../thief/">
+                    <h2>Thief</h2>
+                </Link>
+            </div>
             <OneSkill
                 skill={skills.archery}
                 handleOnUpdateSkill={handleOnUpdateSkill}
@@ -45,6 +57,8 @@ const WarriorSliders = props => {
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
             >
             </OneSkill>
+            <div className="spacer_end"></div>
+
         </div>
     )
 }

@@ -13,7 +13,7 @@ const OneSkill = (props) => {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "10px" }}>
+            <div className="oneSkill">
                 <div style={{ color: skill.selected ? "white" : "grey", width: "100%" }}>
                     <input
                         type="checkbox"
@@ -22,7 +22,7 @@ const OneSkill = (props) => {
                         id={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}
                         hidden
                     ></input>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div className="oneSkill_title">
                         <label
                             className="glow"
                             htmlFor={"checkbox_" + skill.name.replace(/\s/g, '').toLowerCase()}>
