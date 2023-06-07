@@ -29,8 +29,8 @@ body {
 }
 
 .perksBox {
-  background-color: green;
-  display: none;
+  /* background-color: green; */
+  /* display: none; */
 }
 
 .hidden {
@@ -48,7 +48,12 @@ body {
   overflow-x: hidden;
   border-left: 1px solid white;
   /* right: -50px; */
-  /* padding-left: 50px; */
+  padding-bottom: 100px;
+  z-index: 1;
+}
+
+.perksBox_show:hover {
+  display: block;
 }
 
 .perksBox_selectRune {
@@ -99,21 +104,73 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+.oneSkill {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px
+}
+
+.oneSkill_title {
+  margin: auto;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  gap: 40px;
+}
+
 .skillSlider {
   width: 100%;
 }
 
 .inputWindow {
   width: 50vw;
-  background-color: rebeccapurple;
+  height: 100vh;
+  background-color: rgb(63, 63, 63);
+  /* padding: 40px 0px 40px 40px */
+  /* overflow-y: scroll; */
+  transition: all 1s ease-in;
 }
 
+.mageInput {
+  background-color: lightblue;
+  padding: 40px 0px 40px 40px;
+}
+
+.warriorInput {
+  background-color: orange;
+  padding: 40px 0px 40px 40px;
+}
+
+.thiefInput {
+  background-color: lightgreen;
+  padding: 40px 0px 40px 40px;
+}
+
+.navHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.spacer {
+  height: 50px;
+}
+
+.spacer_end {
+  height: 80vh;
+}
 
 .consoleWrapper {
   position: absolute;
   width: 100%;
   bottom: 0px;
-  transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+  /* background-color: aliceblue; */
+  padding-top: 0px;
+  height: auto;
 }
 
 .consoleWindow {
@@ -130,10 +187,14 @@ body {
 
 .consoleThumb {
   width: 35px;
-  padding: 40px 40px 40px 40px;
+  /* padding: 40px 40px 40px 40px; */
   margin: auto;
-  position: relative;
-  top: 50px;
+  /* position: relative; */
+  /* top: 50px; */
+  /* background-color: green; */
+  /* border-radius: 50%; */
+  overflow: clip;
+  margin: -10px;
 }
 
 .opened {

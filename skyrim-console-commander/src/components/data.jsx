@@ -168,6 +168,7 @@ const SkillsData = {
             },
             "Dark Souls": {
                 "name": "Dark Souls",
+                "description": "Reanimated undead have 100 points more health.",
                 "ID": "000581de",
                 "selected": false,
             },
@@ -1217,6 +1218,7 @@ const SkillsData = {
                 "selected": false,
             },
             "Intimidation": {
+                "name": "Intimidation",
                 "description": "Intimidation is twice as likely to be successful.",
                 "ID": "00105f29",
                 "selected": false,

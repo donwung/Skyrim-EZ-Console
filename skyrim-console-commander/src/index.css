@@ -1,5 +1,11 @@
+@font-face {
+  font-family: Futura-Condensed-Medium;
+  src: url("./assets/Futura_Condensed_Medium.otf") format("opentype")
+}
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Futura-Condensed-Medium;
   line-height: 1.5;
   font-weight: 400;
 
