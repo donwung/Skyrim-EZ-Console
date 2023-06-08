@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ShowPerks from "./showPerks"
+import sliderEnd from "../assets/sliderBorder.png"
 
 const OneSkill = (props) => {
     const skill = props.skill
@@ -14,7 +15,7 @@ const OneSkill = (props) => {
     return (
         <div>
             <div className="oneSkill">
-                <div style={{ color: skill.selected ? "white" : "grey", width: "100%" }}>
+                <div style={{ color: skill.selected ? "textSelected" : "textNotSelected"}} className="rangeSlider">
                     <input
                         type="checkbox"
                         name={skill.name.replace(/\s/g, '').toLowerCase()}
@@ -29,6 +30,7 @@ const OneSkill = (props) => {
                             {skill.name}</label>
                         <>{skill.level}</>
                     </div>
+                    <img src={sliderEnd} className="flipped"></img>
                     <input
                         type="range"
                         name={skill.name.replace(/\s/g, '').toLowerCase()}
@@ -37,6 +39,7 @@ const OneSkill = (props) => {
                         value={skill.selected ? skill.level : 0}
                         className="skillSlider"
                     ></input>
+                    <img src={sliderEnd} className=""></img>
                 </div>
                 <ShowPerks
                     perks={allPerks}

@@ -4,23 +4,17 @@ const ShowUnrankedPerk = props => {
     console.log(perk)
 
     return (
-        <div style={{ marginBottom: "50px" }}>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="onePerk">
+            <div className="onePerkHeader">
                 <h3>
                     {perk.name}
                 </h3>
                 <button onClick={() => handleOnSetPerksOutput(perk)}>
-                    Add this
+                    +
                 </button>
             </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                {/* <input
-                    type="range"
-                    min="1" max={ranks.length}
-                    value={selectedPerkRank}
-                    onChange={(e) => setSelectedPerkRank(e.target.value)}></input> */}
-            </div>
-            <p>
+            <div className="onePerkTitleBar"></div>
+            <p className="onePerkDescription">
                 {perk.description}
             </p>
         </div>

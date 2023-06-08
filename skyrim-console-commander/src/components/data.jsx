@@ -603,7 +603,7 @@ const SkillsData = {
         "level": 0,
         "selected": false,
         "perks": {
-            "overdraw": {
+            "Overdraw": {
                 "rank": {
                     "1": {
                         "name": "Overdraw 1",
@@ -637,71 +637,70 @@ const SkillsData = {
                     }
                 }
             },
-            "criticalShot": {
+            "Critical Shot": {
                 "rank": {
                     "1": {
-                        "name": "criticalShot 1",
+                        "name": "Critical Shot 1",
                         "description": "10% chance of a critical hit that does extra damage.",
                         "ID": "00105f1c",
                         "selected": false,
                     },
                     "2": {
-                        "name": "criticalShot 2",
+                        "name": "Critical Shot 2",
                         "description": "15% chance of a critical hit that does 25% more critical damage.",
                         "ID": "00105f1e",
                         "selected": false,
                     }
                 },
             },
-            "huntersDiscipline": {
-                "name": "huntersDiscipline ",
+            "Hunter's Discipline": {
+                "name": "Hunter's Discipline",
                 "description": "Recover twice as many arrows from dead bodies.",
                 "ID": "00051b12",
                 "selected": false,
             },
-            "ranger": {
-
-                "name": "ranger",
+            "Ranger": {
+                "name": "Ranger",
                 "description": "Able to move faster with a drawn bow.",
                 "ID": "00058f63",
                 "selected": false,
             },
-            "eagleEye": {
-                "name": "eagleEye",
+            "Eagle Eye": {
+                "name": "Eagle Eye",
                 "description": "Pressing Block while aiming will zoom in your view.",
                 "ID": "00058f61",
                 "selected": false,
             },
-            "powerShot": {
-                "name": "powerShot",
+            "Power Shot": {
+                "name": "Power Shot",
                 "description": "Arrows stagger all but the largest opponents 50% of the time.",
                 "ID": "00058f62",
                 "selected": false,
             },
-            "quickShot": {
-                "name": "quickShot",
+            "Quick Shot": {
+                "name": "Quick Shot",
                 "description": "Can draw a bow 30% faster.",
                 "ID": "00105f19",
                 "selected": false,
             },
-            "steadyHand": {
+            "Steady Hand": {
                 "rank": {
                     "1": {
-                        "name": "steadyHand 1",
+                        "name": "Steady Hand 1",
                         "description": "Zooming in with a bow slows time by 25%.",
                         "ID": "00103ada",
                         "selected": false,
                     },
                     "2": {
-                        "name": "steadyHand 2",
+                        "name": "Steady Hand 2",
                         "description": "Zooming in with a bow slows time by 50%.",
                         "ID": "00103adb",
                         "selected": false,
                     }
                 }
             },
-            "bullseye": {
-                "name": "bullseye",
+            "Bullseye": {
+                "name": "Bullseye",
                 "description": "15% chance of paralyzing the target for a few seconds.",
                 "ID": "00058f64",
                 "selected": false,
