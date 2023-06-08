@@ -219,8 +219,8 @@ body {
 }
 
 .skillNotSelected {
-  color: lightgrey;
-  opacity: 80%;
+  color: grey;
+  opacity: 65%;
 }
 
 .oneSkill_title {
@@ -247,18 +247,30 @@ body {
 }
 
 .mageInput {
-  background-color: lightblue;
+  background-image: url("./assets/backgrounds/mage.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
   padding: 40px 0px 40px 40px;
+  box-shadow: inset 0px -50px 100px 50px rgba(3, 37, 99, 0.842);
 }
 
 .warriorInput {
-  background-color: orange;
+  background-image: url("./assets/backgrounds/warrior.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom 15% top 50%;
   padding: 40px 0px 40px 40px;
+  box-shadow: inset 0px -50px 100px 50px rgba(88, 26, 8, 0.582);
 }
 
 .thiefInput {
-  background-color: lightgreen;
+  background-image: url("./assets/backgrounds/thief.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom 15% top 50%;
   padding: 40px 0px 40px 40px;
+  box-shadow: inset 0px -50px 100px 50px rgba(5, 22, 6, 0.801);
 }
 
 .navHeader {
