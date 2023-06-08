@@ -209,6 +209,101 @@ body {
   height: 100px;
 }
 
+.onePerk {
+  margin-bottom: 50px
+}
+
+.onePerk h3 {
+  font-size: 20pt;
+  line-height: 0px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.onePerkHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.onePerkHeader button {
+  line-height: 0px;
+  height: 20px;
+  width: 20px;
+  padding: 0px;
+  border-radius: 5px;
+  /* transform: rotate(45deg); */
+}
+
+.onePerkTitleBar {
+  border: 2px solid white;
+  border-radius: 100%;
+  width: 85%;
+  margin: auto
+}
+
+.onePerkDescription {
+  font-size: 16pt;
+  line-height: 0px;
+}
+
+.rangeSlider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.rangeSlider input {
+  width: 100%;
+  appearance: none;
+  margin: 0px;
+  height: 17px;
+  border-top: 2px solid rgb(200, 200, 200);
+  border-bottom: 1px solid rgb(200, 200, 200);
+  box-shadow: 0px 0px 3px 0px rgb(200, 200, 200);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rangeSlider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background-color: red;
+  height: 30px;
+  width: 30px;
+  background: url('./assets/sliderPointer.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+
+.rangeSlider input::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('./assets/sliderPointer.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+
+
+.rangeSlider img {
+  height: 22px;
+}
+
+.flipped {
+  rotate: 180deg;
+}
+
 /* .consoleWrapper:hover>.closed:hover {
   height: 200px;
 } */
