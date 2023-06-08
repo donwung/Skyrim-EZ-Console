@@ -10,7 +10,7 @@ const ThiefSliders = props => {
     console.log(skills)
 
     return (
-        <div className="thiefInput">
+        <div className="thiefInput unselectable">
             <div className="navHeader">
                 <Link to="../warrior/">
                     <h2>Warrior</h2>

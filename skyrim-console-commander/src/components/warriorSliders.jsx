@@ -9,7 +9,7 @@ const WarriorSliders = props => {
     console.log(skills)
 
     return (
-        <div className="warriorInput">
+        <div className="warriorInput unselectable">
             <div className="navHeader">
                 <Link to="../mage/">
                     <h2>Mage</h2>

@@ -10,7 +10,7 @@ const MageSliders = props => {
     console.log(skills)
 
     return (
-        <div className="mageInput">
+        <div className="mageInput unselectable">
             <div className="navHeader">
                 <Link to="../thief/">
                     <h2>Thief</h2>
