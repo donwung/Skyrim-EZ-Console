@@ -7,11 +7,13 @@ const ShowPerks = (props) => {
     const [showPerks, setShowPerks] = useState(false)
     const allPerks = props.perks
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
+    const skillName = props.selectedSkill
 
     return (
         // DEBUG: uncomment this for original code
         <div
-            style={{ backgroundColor: "", width: "20%" }}
+            // this style code is for "the open perks >>" block
+            style={{ backgroundImage: "", width: "20%" }}
             onMouseEnter={() => setShowPerks(true)}
             onMouseLeave={() => setShowPerks(false)}>
             {/* <div style={{ backgroundColor: "green", width: "20%" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
@@ -23,7 +25,9 @@ const ShowPerks = (props) => {
             </div>
 
             {/* Perks Box */}
-            <div className={"perksBox " + (showPerks ? "show" : "hidden")}>
+            <div
+                className={"skillBg perksBox " + (showPerks ? "show " : "hidden ")}
+                id={skillName.replace(/\s/g, '').toLowerCase()}>
                 <div className="spacer"></div>
                 {Object.keys(allPerks).map((onePerk) => {
                     if ("rank" in allPerks[onePerk]) {

@@ -3,14 +3,9 @@ import ShowPerks from "./showPerks"
 import sliderEnd from "../assets/sliderBorder.png"
 
 const OneSkill = (props) => {
-    const skill = props.skill
     const handleOnUpdateSkill = props.handleOnUpdateSkill
-
-    // console.log(skill.perks)
-
+    const skill = props.skill;
     const [allPerks, setAllPerks] = useState(skill.perks)
-
-    // console.log(allPerks)
 
     return (
         <div>
@@ -46,6 +41,7 @@ const OneSkill = (props) => {
                 <ShowPerks
                     perks={allPerks}
                     handleOnSetPerksOutput={props.handleOnSetPerksOutput}
+                    selectedSkill={skill.name}
                 ></ShowPerks>
             </div>
         </div >

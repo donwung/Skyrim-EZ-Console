@@ -2,6 +2,7 @@ import OneSkill from "./oneSkill";
 import { Link, Route, Routes, Navigate } from "react-router-dom";
 
 
+
 const ThiefSliders = props => {
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;

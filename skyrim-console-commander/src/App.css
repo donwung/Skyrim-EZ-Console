@@ -28,6 +28,86 @@ body {
   overflow-y: hidden;
 }
 
+#alchemy {
+  background-image: url("./assets/skillIcons/alchemy.png");
+}
+
+#alteration {
+  background-image: url("./assets/skillIcons/alteration.png");
+}
+
+#archery {
+  background-image: url("./assets/skillIcons/archery.png");
+}
+
+#block {
+  background-image: url("./assets/skillIcons/block.png");
+}
+
+#conjuration {
+  background-image: url("./assets/skillIcons/conjuration.png");
+}
+
+#destruction {
+  background-image: url("./assets/skillIcons/destruction.png");
+}
+
+#enchanting {
+  background-image: url("./assets/skillIcons/enchanting.png");
+}
+
+#heavyarmor {
+  background-image: url("./assets/skillIcons/heavyarmor.png");
+}
+
+#illusion {
+  background-image: url("./assets/skillIcons/illusion.png");
+}
+
+#lightarmor {
+  background-image: url("./assets/skillIcons/lightarmor.png");
+}
+
+#lockpicking {
+  background-image: url("./assets/skillIcons/lockpicking.png");
+}
+
+#onehanded {
+  background-image: url("./assets/skillIcons/onehanded.png");
+}
+
+#pickpocket {
+  background-image: url("./assets/skillIcons/pickpocket.png");
+}
+
+#restoration {
+  background-image: url("./assets/skillIcons/restoration.png");
+}
+
+#smithing {
+  background-image: url("./assets/skillIcons/smithing.png");
+}
+
+#sneak {
+  background-image: url("./assets/skillIcons/sneak.png");
+}
+
+#speech {
+  background-image: url("./assets/skillIcons/speech.png");
+}
+
+#twohanded {
+  background-image: url("./assets/skillIcons/twohanded.png");
+}
+
+.skillBg {
+  /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-repeat: no-repeat;
+  background-position: bottom 15% right 40px;
+}
+
 .perksBox {
   /* background-color: green; */
   /* display: none; */

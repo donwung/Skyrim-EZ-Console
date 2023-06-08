@@ -1,5 +1,6 @@
 import OneSkill from "./oneSkill";
 import { Link, Route, Routes, Navigate } from "react-router-dom";
+import backgroundImage from "../assets/skillIcons/alchemy.png"
 
 
 const MageSliders = props => {
