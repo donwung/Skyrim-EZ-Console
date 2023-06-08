@@ -43,14 +43,18 @@ const ConsoleBar = props => {
                 onMouseLeave={() => setPeek(false)}
             >
                 {/* <button></button> */}
-                <img
-                    src={selectRune}
-                    onClick={() => handleOpenConsole()}
-                    onMouseEnter={() => setPeek(true)}
-                    onMouseLeave={() => setPeek(false)}
-                    // style={{ display: openConsole && "none" }}
-                    className={"consoleThumb "}>
-                </img>
+                <div className="selectRuneTopBorder">
+                    <div className="selectRuneBar"></div>
+                    <img
+                        src={selectRune}
+                        onClick={() => handleOpenConsole()}
+                        onMouseEnter={() => setPeek(true)}
+                        onMouseLeave={() => setPeek(false)}
+                        // style={{ display: openConsole && "none" }}
+                        className={"consoleThumb "}>
+                    </img>
+                    <div className="selectRuneBar"></div>
+                </div>
                 <div className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
                     <SkillOutput skills={skills}></SkillOutput>
                     <PerkOutput perks={perksOutput}></PerkOutput>
