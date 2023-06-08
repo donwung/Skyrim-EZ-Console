@@ -23,7 +23,7 @@ const ShowPerks = (props) => {
             </div>
 
             {/* Perks Box */}
-            <div className={showPerks ? "perksBox_show" : "hidden"}>
+            <div className={"perksBox " + (showPerks ? "show" : "hidden")}>
                 <div className="spacer"></div>
                 {Object.keys(allPerks).map((onePerk) => {
                     if ("rank" in allPerks[onePerk]) {

@@ -31,13 +31,15 @@ body {
 .perksBox {
   /* background-color: green; */
   /* display: none; */
+  transition: all 0.5s ease-in;
 }
 
 .hidden {
-  display: none
+  display: none;
+  width: 0px;
 }
 
-.perksBox_show {
+.show {
   /* background-color: green; */
   position: fixed;
   top: 0px;
@@ -50,6 +52,18 @@ body {
   /* right: -50px; */
   padding-bottom: 100px;
   z-index: 1;
+  animation-name: show;
+  animation-duration: 0.12s;
+}
+
+@keyframes show {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 50vw
+  }
 }
 
 .perksBox_show:hover {
@@ -100,23 +114,45 @@ body {
 
 .glow:hover {
   text-align: center;
-  text-shadow: 0 0 5px #fff;
+  text-shadow: 0 0 10px #ffffff, 0 0 5px #ffffff;
   transition: all 0.2s ease-in-out;
 }
+
 
 .oneSkill {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   gap: 40px
+}
+
+.oneSkillHeader {
+  /* display: flex; */
+  width: 100%;
+}
+
+.rangeSliderSkill {
+  width: 100%;
+}
+
+.skillSelected {
+  color: white;
+
+}
+
+.skillNotSelected {
+  color: lightgrey;
+  opacity: 80%;
 }
 
 .oneSkill_title {
   margin: auto;
-  width: 20%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  gap: 40px;
+  gap: 40pt;
+  font-size: 32pt;
 }
 
 .skillSlider {
@@ -252,9 +288,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 65%;
+  width: 100%;
   margin: auto;
   margin-top: 10px;
+}
+
+.w-65 {
+  width: 65%
 }
 
 .rangeSlider input {

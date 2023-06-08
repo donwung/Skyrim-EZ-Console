@@ -15,7 +15,7 @@ const OneSkill = (props) => {
     return (
         <div>
             <div className="oneSkill">
-                <div style={{ color: skill.selected ? "textSelected" : "textNotSelected"}} className="rangeSlider">
+                <div className={(skill.selected ? "skillSelected" : "skillNotSelected") + " oneSkillHeader"}>
                     <input
                         type="checkbox"
                         name={skill.name.replace(/\s/g, '').toLowerCase()}
@@ -30,23 +30,25 @@ const OneSkill = (props) => {
                             {skill.name}</label>
                         <>{skill.level}</>
                     </div>
-                    <img src={sliderEnd} className="flipped"></img>
-                    <input
-                        type="range"
-                        name={skill.name.replace(/\s/g, '').toLowerCase()}
-                        onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
-                        // onMouseUp={() => console.log("set " + skill.name + " to " + skill.level)}
-                        value={skill.selected ? skill.level : 0}
-                        className="skillSlider"
-                    ></input>
-                    <img src={sliderEnd} className=""></img>
+                    <div className={"rangeSlider rangeSliderSkill" + (skill.selected ? "skillSelected" : "skillNotSelected")}>
+                        <img src={sliderEnd} className="flipped"></img>
+                        <input
+                            type="range"
+                            name={skill.name.replace(/\s/g, '').toLowerCase()}
+                            onChange={(e) => skill.selected && handleOnUpdateSkill(e, "value")}
+                            // onMouseUp={() => console.log("set " + skill.name + " to " + skill.level)}
+                            value={skill.selected ? skill.level : 0}
+                            className="skillSlider"
+                        ></input>
+                        <img src={sliderEnd}></img>
+                    </div>
                 </div>
                 <ShowPerks
                     perks={allPerks}
                     handleOnSetPerksOutput={props.handleOnSetPerksOutput}
                 ></ShowPerks>
             </div>
-        </div>
+        </div >
     )
 }
 
