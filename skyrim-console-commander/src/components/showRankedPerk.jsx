@@ -6,9 +6,14 @@ const ShowRankedPerk = props => {
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
     const [selectedPerkRank, setSelectedPerkRank] = useState(1)
     // NOTE: perks must be referred to by their rank
-    // console.log(perk)
     // console.log(perk.rank[1])
     // console.log(Object.keys(perk.rank))
+
+    // TODO: add and combine deselect button
+    const handleOnAddPerkButton = (perk) => {
+        handleOnSetPerksOutput(perk)
+    }
+
     const ranks = Object.keys(perk.rank);
     return (
         <div className="onePerk">
@@ -16,7 +21,7 @@ const ShowRankedPerk = props => {
                 <h3>
                     {perk.rank[1].name.slice(0, -2)}
                 </h3>
-                <button onClick={() => handleOnSetPerksOutput(perk.rank[selectedPerkRank])}>
+                <button onClick={() => handleOnAddPerkButton(perk.rank[selectedPerkRank])}>
                     {"+"}
                 </button>
             </div>

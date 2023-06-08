@@ -1,7 +1,12 @@
 const ShowUnrankedPerk = props => {
     const perk = props.perk;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput;
-    console.log(perk)
+
+
+    // TODO: add and combine deselect button
+    const handleOnAddPerkButton = (perk) => {
+        handleOnSetPerksOutput(perk)
+    }
 
     return (
         <div className="onePerk">
@@ -9,7 +14,7 @@ const ShowUnrankedPerk = props => {
                 <h3>
                     {perk.name}
                 </h3>
-                <button onClick={() => handleOnSetPerksOutput(perk)}>
+                <button onClick={() => handleOnAddPerkButton(perk)}>
                     +
                 </button>
             </div>
