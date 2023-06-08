@@ -14,8 +14,8 @@ const ConsoleBar = props => {
         <div>
             <div
                 className={"consoleWrapper"}
-                onClick={() => setOpenConsole(!openConsole)}
-            // onClick={() => setOpenConsole(!openConsole)}
+                onMouseEnter={() => setPeek(true)}
+                onMouseLeave={() => setPeek(false)}
             >
                 {/* <button></button> */}
                 <img
