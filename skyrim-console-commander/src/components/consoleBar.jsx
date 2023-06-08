@@ -10,6 +10,13 @@ const ConsoleBar = props => {
     const [openConsole, setOpenConsole] = useState(false)
     const [peek, setPeek] = useState(false)
 
+    document.addEventListener(("keypress"), (e) => {
+        console.log(e.key)
+        if (e.key === "`") {
+            setOpenConsole(!openConsole)
+        }
+    })
+
     return (
         <div>
             <div
