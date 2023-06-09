@@ -25,7 +25,7 @@ const OneSkill = (props) => {
                             {skill.name}</label>
                         <>{skill.level}</>
                     </div>
-                    <div className={"rangeSlider rangeSliderSkill" + (skill.selected ? "skillSelected" : "skillNotSelected")}>
+                    <div className={"rangeSlider centered rangeSliderSkill" + (skill.selected ? "skillSelected" : "skillNotSelected")}>
                         <img src={sliderEnd} className="flipped"></img>
                         <input
                             type="range"

@@ -10,18 +10,18 @@ const ShowPerks = (props) => {
     const skillName = props.selectedSkill
 
     return (
-        // DEBUG: uncomment this for original code
         <div
-            // this style code is for "the open perks >>" block
-            style={{ backgroundImage: "", width: "20%" }}
+            style={{ width: "20%", height: "60px"}}
+            className="centered"
             onMouseEnter={() => setShowPerks(true)}
             onMouseLeave={() => setShowPerks(false)}>
             {/* <div style={{ backgroundColor: "green", width: "20%" }} onMouseEnter={() => setShowPerks(true)} onMouseLeave={() => setShowPerks(true)}> */}
-            <div style={{ display: "flex" }}>
-                <p>
-                    Open Perks {">>"}
-                </p>
-                {/* <img src={selectRune} className={showPerks ? "perksBox_selectRune" : "hidden"}></img> */}
+            <div className="centered">
+                <p className={showPerks && "hidden"}>View {skillName} Perks</p>
+                <img
+                    src={selectRune}
+                    className={showPerks ? "showPerksRune" : "hidden"}>
+                </img>
             </div>
 
             {/* Perks Box */}

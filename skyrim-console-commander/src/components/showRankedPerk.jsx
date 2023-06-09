@@ -26,7 +26,7 @@ const ShowRankedPerk = props => {
                 </button>
             </div>
             <div className="onePerkTitleBar"></div>
-            <div className="rangeSlider w-65">
+            <div className="rangeSlider centered w-65">
                 <img src={sliderEnd} className="flipped"></img>
                 <input
                     type="range"
