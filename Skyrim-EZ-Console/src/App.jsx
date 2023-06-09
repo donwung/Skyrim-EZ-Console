@@ -76,28 +76,28 @@ function App() {
         <div className="App">
             <div className="inputWindow">
                 <Routes>
-                    <Route path="/Skyrim-EZ-Console/warrior" element={
+                    <Route path="/warrior" element={
                         <WarriorSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </WarriorSliders>}>
                     </Route>
-                    <Route path="/Skyrim-EZ-Console/mage" element={
+                    <Route path="/mage" element={
                         <MageSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </MageSliders>}>
                     </Route>
-                    <Route path="/Skyrim-EZ-Console/thief" element={
+                    <Route path="/thief" element={
                         <ThiefSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </ThiefSliders>}>
                     </Route>
-                    <Route path="/Skyrim-EZ-Console/*" element={<Navigate to="/Skyrim-EZ-Console/warrior" ></Navigate>}></Route>
+                    <Route path="/*" element={<Navigate to="/warrior" ></Navigate>}></Route>
                 </Routes>
             </div>
             <ConsoleBar skills={skills} perksOutput={perksOutput}></ConsoleBar>
