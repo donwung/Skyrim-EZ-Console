@@ -24,6 +24,14 @@ Such as:
 - Select the console commands in the output box, then copy
 - Paste into Skyrim (line breaks are hidden in the in-game console, so CTRL+V just once is good)
 
+### TO BE ADDED:
+
+- remove a perk
+- add instructions to webpage
+- links to UESP
+- increase browser support
+- copy to clipboard
+
 ### INPUT:
 User can select from a few commonly used console commands such as:
 
