@@ -12,14 +12,14 @@ const MageSliders = props => {
     return (
         <div className="mageInput unselectable">
             <div className="navHeader">
-                <Link to="../thief/">
-                    <h2>Thief</h2>
-                </Link>
                 {/* <Link to="../mage/"> */}
                 <h1>Mage</h1>
                 {/* </Link> */}
                 <Link to="../warrior/">
                     <h2>Warrior</h2>
+                </Link>
+                <Link to="../thief/">
+                    <h2>Thief</h2>
                 </Link>
             </div>
             <OneSkill

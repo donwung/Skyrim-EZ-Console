@@ -35,6 +35,14 @@ const ConsoleBar = props => {
     }, [openConsole]);
 
 
+    // TODO: add copy to clipboard feature
+    const handleOnCopyToClipboard = () => {
+        // navigator.clipboard.writeText(this.state.textToCopy)
+        const text = document.getElementById('consoleCommandsOutput')
+
+        console.log(text.textContent)
+    }
+
     return (
         <div>
             <div
@@ -55,7 +63,12 @@ const ConsoleBar = props => {
                     </img>
                     <div className="selectRuneBar"></div>
                 </div>
-                <div className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
+                <div
+                    id="consoleCommandsOutput"
+                    className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
+                    <h3>
+                        <span onClick={() => handleOnCopyToClipboard()}>Copy</span> and paste these
+                    </h3>
                     <SkillOutput skills={skills}></SkillOutput>
                     <PerkOutput perks={perksOutput}></PerkOutput>
                 </div>

@@ -9,16 +9,16 @@ const Output = (props) => {
     let selectedArr = [];
     for (const one in skills) {
         if (skills[one].selected) {
-            console.log(one + " is selected")
+            // console.log(one + " is selected")
             // setSelectedSkills(skills[one])
-            console.log(skills[one])
+            // console.log(skills[one])
             selectedArr.push(skills[one])
         }
     }
 
     return (
         <div>
-            <h3>Skill Output</h3>
+            {/* <h3>Skill Output</h3> */}
             {/* TODO: print all keyvals */}
             {/* <p>{JSON.stringify(skills)}</p> */}
             {selectedArr.map((one) => {

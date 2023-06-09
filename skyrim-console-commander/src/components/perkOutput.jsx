@@ -4,9 +4,9 @@ const PerkOutput = (props) => {
 
     return (
         <div>
-            <h3>
+            {/* <h3>
                 Perks output
-            </h3>
+            </h3> */}
             {/* {output} */}
             {
                 output.map((one) => {
