@@ -8,13 +8,16 @@ Skyrim Console Commander is a program that allows users to search console comman
 - Can be useful for testing or quickly making a build without going through the whole game
 
 ### HOW TO USE:
-Included on the application, there will be a hoverable section that will detail how to use the tool.
+<!-- Included on the application, there will be a hoverable section that will detail how to use the tool.
 Such as:
 
 - where to download Skyrim Copy-Paste
 - how to navigate the UI
 - how to enable console
-- etc
+- etc -->
+- Download ConsolePlusPlus and install it
+- Select the console commands in the output box, then copy
+- Paste into Skyrim (line breaks are hidden in the in-game console, so CTRL+V just once is good)
 
 ### INPUT:
 User can select from a few commonly used console commands such as:
