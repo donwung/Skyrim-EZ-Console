@@ -3,6 +3,7 @@ import { Link, Route, Routes, Navigate } from "react-router-dom";
 
 
 const WarriorSliders = props => {
+    const path = props.path;
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
@@ -11,13 +12,13 @@ const WarriorSliders = props => {
     return (
         <div className="warriorInput unselectable">
             <div className="navHeader">
-                <Link to="../mage/">
+                <Link to="..\mage">
                     <h2>Mage</h2>
                 </Link>
-                {/* <Link to="../warrior/"> */}
+                {/* <Link to="..\warrior"> */}
                 <h1>Warrior</h1>
                 {/* </Link> */}
-                <Link to="../thief/">
+                <Link to="..\thief">
                     <h2>Thief</h2>
                 </Link>
             </div>

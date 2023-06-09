@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 import OneSkill from './components/oneSkill'
@@ -77,28 +76,28 @@ function App() {
         <div className="App">
             <div className="inputWindow">
                 <Routes>
-                    <Route path="/" element={<Navigate to="/warrior" replace></Navigate>}></Route>
-                    <Route path="warrior" element={
+                    <Route path="/Skyrim-EZ-Console/warrior" element={
                         <WarriorSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </WarriorSliders>}>
                     </Route>
-                    <Route path="mage" element={
+                    <Route path="/Skyrim-EZ-Console/mage" element={
                         <MageSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </MageSliders>}>
                     </Route>
-                    <Route path="thief" element={
+                    <Route path="/Skyrim-EZ-Console/thief" element={
                         <ThiefSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}>
                         </ThiefSliders>}>
                     </Route>
+                    <Route path="/Skyrim-EZ-Console/*" element={<Navigate to="/Skyrim-EZ-Console/warrior" ></Navigate>}></Route>
                 </Routes>
             </div>
             <ConsoleBar skills={skills} perksOutput={perksOutput}></ConsoleBar>

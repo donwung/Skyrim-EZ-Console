@@ -12,13 +12,13 @@ const ThiefSliders = props => {
     return (
         <div className="thiefInput unselectable">
             <div className="navHeader">
-                <Link to="../mage/">
+                <Link to="..\mage">
                     <h2>Mage</h2>
                 </Link>
-                <Link to="../warrior/">
+                <Link to="..\warrior">
                     <h2>Warrior</h2>
                 </Link>
-                {/* <Link to="../thief/"> */}
+                {/* <Link to="..\thief"> */}
                 <h1>Thief</h1>
                 {/* </Link> */}
             </div>
