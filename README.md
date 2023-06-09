@@ -1,4 +1,4 @@
-# Skyrim Console Commander
+# Skyrim EZ Console
 ## _convenient Skyrim console commands without having to google them_
 
 Skyrim Console Commander is a program that allows users to search console commands for Skyrim without needing to do variety research and memorize console commands.
