@@ -26,3 +26,9 @@ User can select from a few commonly used console commands such as:
 
 ### OUTPUT:
 User opens up the console drop-up box and copies the commands to paste them into Skyrim
+
+
+## Credit to:
+- UESP for skill tree icons and perk information
+- u/jesuspunk for the nebula background(s)
+- Bethesda for a timeless game
