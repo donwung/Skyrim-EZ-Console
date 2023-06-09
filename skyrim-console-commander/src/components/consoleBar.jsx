@@ -13,14 +13,14 @@ const ConsoleBar = props => {
 
 
     const handleOpenConsole = () => {
-        console.log("opening console")
-        console.log(openConsole)
+        // console.log("opening console")
+        // console.log(openConsole)
         setOpenConsole(!openConsole)
     }
 
     useEffect(() => {
         function handleKeyDown(e) {
-            console.log(e.key);
+            // console.log(e.key);
             if (e.key === "`") {
                 handleOpenConsole(!openConsole)
             }

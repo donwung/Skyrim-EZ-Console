@@ -7,7 +7,7 @@ const MageSliders = props => {
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
-    console.log(skills)
+    // console.log(skills)
 
     return (
         <div className="mageInput unselectable">

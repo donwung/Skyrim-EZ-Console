@@ -50,9 +50,9 @@ function App() {
     }
 
     const handleOnSetPerksOutput = (perk) => {
-        console.log(perk.name)
-        console.log(perk.description)
-        console.log(perk.ID)
+        // console.log(perk.name)
+        // console.log(perk.description)
+        // console.log(perk.ID)
 
         const updated = {
             name: perk.name,
