@@ -7,6 +7,11 @@ Skyrim Console Commander is a program that allows users to search console comman
 - Don't need to memorize console commands (quick stat changes can be copy-pasted, other commands are also displayed)
 - Can be useful for testing or quickly making a build without going through the whole game
 
+I expect there's going to be a few bugs here and there.
+And some UI elements that don't look particularly awesome.
+I do plan on giving it a few last finishing touches and some quality of life changes.
+Along with instructions on how to use this.
+
 ### HOW TO USE:
 <!-- Included on the application, there will be a hoverable section that will detail how to use the tool.
 Such as:
