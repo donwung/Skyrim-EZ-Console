@@ -15,13 +15,13 @@ function App() {
 
     const [perksOutput, setPerksOutput] = useState([]);
 
-    const handleOnUpdateSkill = (e, updateType) => {
+    const handleOnUpdateSkill = (skill, updateType) => {
         // console.log(e.target.name)
         // console.log(e.target.value)
         // console.log(updateType)
 
-        const skillName = e.target.name.toLowerCase()
-        const skillValue = e.target.value
+        const skillName = skill.name.toLowerCase()
+        const skillValue = skill.value
 
         let updatedSkill = {
             [skillName]: {}
