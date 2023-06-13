@@ -29,7 +29,7 @@ Such as:
 - remove a perk
 - add instructions to webpage
 - links to UESP
-- increase browser support
+- widen browser support
 - copy to clipboard
 
 ### INPUT:
