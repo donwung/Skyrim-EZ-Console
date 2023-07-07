@@ -7,6 +7,7 @@ const MageSliders = props => {
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
+    const perksOutput = props.perksOutput;
     // console.log(skills)
 
     return (
@@ -26,36 +27,42 @@ const MageSliders = props => {
                 skill={skills.alteration}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.conjuration}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.destruction}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.enchanting}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.illusion}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.restoration}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <div className="spacer_end"></div>

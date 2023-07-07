@@ -6,6 +6,7 @@ import PerkOutput from '../components/perkOutput'
 const ConsoleBar = props => {
     const skills = props.skills;
     const perksOutput = props.perksOutput;
+    const handleOnRemoveFromPerksOutput = props.handleOnRemoveFromPerksOutput;
 
     const [openConsole, setOpenConsole] = useState(false)
     const [peek, setPeek] = useState(false)
@@ -27,9 +28,7 @@ const ConsoleBar = props => {
         }
 
         document.addEventListener('keydown', handleKeyDown);
-
-        // Don't forget to clean up
-        return function cleanup() {
+        return () => {
             document.removeEventListener('keydown', handleKeyDown);
         }
     }, [openConsole]);
@@ -70,7 +69,7 @@ const ConsoleBar = props => {
                         <span onClick={() => handleOnCopyToClipboard()}>Copy</span> and paste these
                     </h3>
                     <SkillOutput skills={skills}></SkillOutput>
-                    <PerkOutput perks={perksOutput}></PerkOutput>
+                    <PerkOutput perks={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></PerkOutput>
                 </div>
             </div>
         </div>

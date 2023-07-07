@@ -6,6 +6,7 @@ const OneSkill = (props) => {
     const handleOnUpdateSkill = props.handleOnUpdateSkill
     const skill = props.skill;
     const [allPerks, setAllPerks] = useState(skill.perks)
+    const perksOutput = props.perksOutput
 
     const handleOnClickRangeEnd = (e, isIncreasing) => {
         let payload = {
@@ -66,6 +67,7 @@ const OneSkill = (props) => {
                     perks={allPerks}
                     handleOnSetPerksOutput={props.handleOnSetPerksOutput}
                     selectedSkill={skill.name}
+                    perksOutput={perksOutput}
                 ></ShowPerks>
             </div>
         </div >

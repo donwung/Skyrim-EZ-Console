@@ -8,10 +8,29 @@ const ShowPerks = (props) => {
     const allPerks = props.perks
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
     const skillName = props.selectedSkill
+    const perksOutput = props.perksOutput
+
+
+    // TODO: change + to x on selected
+    const debug_handleOnCheckIsSelected = () => {
+        console.log("dbug")
+
+        const IDarr = perksOutput.map((perk) => {
+            return perk.ID
+        })
+        console.log(IDarr)
+        console.log(perk.ID)
+        if (IDarr.includes(perk.ID)) {
+            console.log("found")
+            setPerkIsSelected(true)
+        } else {
+            setPerkIsSelected(false)
+        }
+    }
 
     return (
         <div
-            style={{ width: "20%", height: "60px"}}
+            style={{ width: "20%", height: "60px" }}
             className="centered"
             onMouseEnter={() => setShowPerks(true)}
             onMouseLeave={() => setShowPerks(false)}>
@@ -33,7 +52,12 @@ const ShowPerks = (props) => {
                     if ("rank" in allPerks[onePerk]) {
                         return (<ShowRankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowRankedPerk>)
                     } else {
-                        return (<ShowUnrankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowUnrankedPerk>)
+                        return (
+                            <ShowUnrankedPerk
+                                perk={allPerks[onePerk]}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
+                                perksOutput={perksOutput}
+                            ></ShowUnrankedPerk>)
                     }
                     // return (
                     //     // HACK: this isn't safe 
