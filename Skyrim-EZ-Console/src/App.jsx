@@ -11,8 +11,6 @@ import ConsoleBar from './components/consoleBar'
 
 function App() {
     const [skills, setSkills] = useState(data);
-    const [allSelected, setAllSelected] = useState([])
-
     const [perksOutput, setPerksOutput] = useState([]);
 
     const handleOnUpdateSkill = (skill, updateType) => {
@@ -53,6 +51,7 @@ function App() {
         // console.log(perk.description)
         // console.log(perk.ID)
 
+        console.log("new perk added")
         const updated = {
             name: perk.name,
             ID: perk.ID
@@ -72,6 +71,21 @@ function App() {
         console.log(perksOutput)
     }
 
+    const handleOnRemoveFromPerksOutput = (ID, idx) => {
+        // console.log("removing perk")
+        // console.log("at ID=" + ID)
+        // console.log("at idx=" + idx)
+        console.log(perksOutput)
+        console.log(perksOutput[idx])
+        const updated = [...perksOutput]
+        if(idx > -1){
+            updated.splice(idx, 1)
+        }
+        console.log(updated)
+        setPerksOutput(updated)
+
+    }
+
     return (
         <div className="App">
             <div className="inputWindow">
@@ -87,7 +101,9 @@ function App() {
                         <MageSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                            perksOutput={perksOutput}
+                            >
                         </MageSliders>}>
                     </Route>
                     <Route path="/thief" element={
@@ -100,7 +116,7 @@ function App() {
                     <Route path="/*" element={<Navigate to="/warrior" ></Navigate>}></Route>
                 </Routes>
             </div>
-            <ConsoleBar skills={skills} perksOutput={perksOutput}></ConsoleBar>
+            <ConsoleBar skills={skills} perksOutput={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></ConsoleBar>
 
         </div>
     )

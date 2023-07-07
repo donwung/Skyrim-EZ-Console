@@ -1,18 +1,17 @@
 const PerkOutput = (props) => {
     const output = props.perks
+    const handleOnRemoveFromPerksOutput = props.handleOnRemoveFromPerksOutput
     // console.log(output)
 
     return (
         <div>
-            {/* <h3>
-                Perks output
-            </h3> */}
-            {/* {output} */}
             {
-                output.map((one) => {
+                output.map((one, key) => {
                     return (
-                        <div>
-                            player.addperk {one.ID} <span className="unselectable" style={{ color: "grey" }}>({one.name})</ span>
+                        <div style={{ display: "flex", gap: "2px", height: "16pt" }} key={key}>
+                            <p>player.addperk {one.ID}</p>
+                            <p className="unselectable" style={{ color: "grey" }}>({one.name})</p>
+                            <p onClick={() => { handleOnRemoveFromPerksOutput(one.ID, key) }}>(remove perk)</p>
                         </div>
                     )
                 })
