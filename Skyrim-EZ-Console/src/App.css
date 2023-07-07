@@ -108,8 +108,8 @@ body {
 
 .skillBg {
   /* Safari 6.0 - 9.0 */
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
   background-repeat: no-repeat;
   background-position: bottom 15% right 40px;
 }
@@ -407,6 +407,12 @@ body {
   margin: auto
 }
 
+.perkIsSelected {
+  transition: all ease-in 0.2s;
+  background-color: blueviolet;
+  height: 40px;
+}
+
 .onePerkDescription {
   font-size: 16pt;
   line-height: 18pt;
@@ -469,10 +475,3 @@ body {
 .flipped {
   rotate: 180deg;
 }
-
-/* .consoleWrapper:hover>.closed:hover {
-  height: 200px;
-} */
-
-/* PREPARE FOR RANGE SLIDER NIGHTMARE */
-/* https://toughengineer.github.io/demo/slider-styler/slider-styler.html */
