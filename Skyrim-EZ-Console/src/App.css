@@ -408,9 +408,13 @@ body {
 }
 
 .perkIsSelected {
-  transition: all ease-in 0.2s;
-  background-color: blueviolet;
-  height: 40px;
+  transition: all ease-in-out 0.2s;
+  /* background-color: blueviolet; */
+  transform: rotate(45deg);
+}
+
+.perkNotSelected {
+  transition: all ease-in-out 0.2s;
 }
 
 .onePerkDescription {
