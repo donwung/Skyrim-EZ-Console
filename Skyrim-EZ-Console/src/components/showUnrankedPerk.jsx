@@ -8,29 +8,35 @@ const ShowUnrankedPerk = props => {
 
     // TODO: add and combine deselect button
     const handleOnAddPerkButton = (perk) => {
-        handleOnSetPerksOutput(perk)
-        debug_handleOnCheckIsSelected()
+        if (debug_handleOnCheckIsSelected()) {
+            setPerkIsSelected(false)
+            handleOnSetPerksOutput(perk, "remove")
+        } else {
+            handleOnSetPerksOutput(perk)
+        }
     }
 
-    useEffect(()=>{
+    // change button style
+    useEffect(() => {
         debug_handleOnCheckIsSelected()
-    }, [perkIsSelected])
+    },
+        // FIXME: rerenders *all* perks pages
+        [perksOutput]
+    )
 
     const debug_handleOnCheckIsSelected = () => {
-        console.log("dbug")
-
         const IDarr = perksOutput.map((perk) => {
             return perk.ID
         })
-        console.log(IDarr)
-        console.log(perk.ID)
+
         if (IDarr.includes(perk.ID)) {
-            console.log("found")
             setPerkIsSelected(true)
+            console.log("found")
+            return true
         } else {
             setPerkIsSelected(false)
+            return false
         }
-
     }
 
     return (
@@ -40,9 +46,10 @@ const ShowUnrankedPerk = props => {
                     {perk.name}
                 </h3>
                 <button
-                    onClick={() => { handleOnAddPerkButton(perk); debug_handleOnCheckIsSelected()
+                    onClick={() => {
+                        handleOnAddPerkButton(perk);
                     }}
-                    className={perkIsSelected && "perkIsSelected"}
+                    className={perkIsSelected ? "perkIsSelected" : "perkNotSelected"}
                 >
                     +
                 </button>

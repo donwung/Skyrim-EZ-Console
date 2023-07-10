@@ -46,11 +46,16 @@ function App() {
         }
     }
 
-    const handleOnSetPerksOutput = (perk) => {
-        // console.log(perk.name)
-        // console.log(perk.description)
-        // console.log(perk.ID)
+    const handleOnSetPerksOutput = (perk, action) => {
+        if (action === "remove") {
+            console.log("removing from perksOutput")
+            handleOnRemoveFromPerksOutput(perk.ID)
+        } else {
+            addToPerksOutput(perk)
+        }
+    }
 
+    const addToPerksOutput = (perk) => {
         console.log("new perk added")
         const updated = {
             name: perk.name,
@@ -71,19 +76,28 @@ function App() {
         console.log(perksOutput)
     }
 
-    const handleOnRemoveFromPerksOutput = (ID, idx) => {
-        // console.log("removing perk")
-        // console.log("at ID=" + ID)
-        // console.log("at idx=" + idx)
+    const handleOnRemoveFromPerksOutput = (ID) => {
+        const idx = findPerksOutputIdxByID(ID)
+        removeFromPerksOutput(idx)
+    }
+
+    const findPerksOutputIdxByID = (ID) => {
+        for(let idx = 0; idx < perksOutput.length; idx++){
+            if(perksOutput[idx].ID === ID){
+                return idx
+            }
+        }
+    }
+
+    const removeFromPerksOutput = (idx) => {
         console.log(perksOutput)
         console.log(perksOutput[idx])
         const updated = [...perksOutput]
-        if(idx > -1){
+        if (idx > -1) {
             updated.splice(idx, 1)
         }
         console.log(updated)
         setPerksOutput(updated)
-
     }
 
     return (
@@ -94,7 +108,9 @@ function App() {
                         <WarriorSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                            perksOutput={perksOutput}
+                        >
                         </WarriorSliders>}>
                     </Route>
                     <Route path="/mage" element={
@@ -103,14 +119,16 @@ function App() {
                             handleOnUpdateSkill={handleOnUpdateSkill}
                             handleOnSetPerksOutput={handleOnSetPerksOutput}
                             perksOutput={perksOutput}
-                            >
+                        >
                         </MageSliders>}>
                     </Route>
                     <Route path="/thief" element={
                         <ThiefSliders
                             skills={skills}
                             handleOnUpdateSkill={handleOnUpdateSkill}
-                            handleOnSetPerksOutput={handleOnSetPerksOutput}>
+                            handleOnSetPerksOutput={handleOnSetPerksOutput}
+                            perksOutput={perksOutput}
+                        >
                         </ThiefSliders>}>
                     </Route>
                     <Route path="/*" element={<Navigate to="/warrior" ></Navigate>}></Route>
