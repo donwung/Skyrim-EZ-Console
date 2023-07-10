@@ -7,6 +7,8 @@ const ThiefSliders = props => {
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
+    const perksOutput = props.perksOutput;
+
     // console.log(skills)
 
     return (
@@ -26,36 +28,42 @@ const ThiefSliders = props => {
                 skill={skills.alchemy}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.lightarmor}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.lockpicking}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.pickpocket}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.sneak}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.speech}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <div className="spacer_end"></div>

@@ -7,6 +7,8 @@ const WarriorSliders = props => {
     const skills = props.skills;
     const handleOnUpdateSkill = props.handleOnUpdateSkill;
     const handleOnSetPerksOutput = props.handleOnSetPerksOutput
+    const perksOutput = props.perksOutput;
+
     // console.log(skills)
 
     return (
@@ -26,36 +28,42 @@ const WarriorSliders = props => {
                 skill={skills.archery}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.block}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.heavyarmor}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.onehanded}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.smithing}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <OneSkill
                 skill={skills.twohanded}
                 handleOnUpdateSkill={handleOnUpdateSkill}
                 handleOnSetPerksOutput={handleOnSetPerksOutput}
+                perksOutput={perksOutput}
             >
             </OneSkill>
             <div className="spacer_end"></div>
