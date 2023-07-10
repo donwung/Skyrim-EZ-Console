@@ -50,7 +50,12 @@ const ShowPerks = (props) => {
                 <div className="spacer"></div>
                 {Object.keys(allPerks).map((onePerk) => {
                     if ("rank" in allPerks[onePerk]) {
-                        return (<ShowRankedPerk perk={allPerks[onePerk]} handleOnSetPerksOutput={handleOnSetPerksOutput}></ShowRankedPerk>)
+                        return (
+                            <ShowRankedPerk
+                                perk={allPerks[onePerk]}
+                                handleOnSetPerksOutput={handleOnSetPerksOutput}
+                                perksOutput={perksOutput}
+                            ></ShowRankedPerk>)
                     } else {
                         return (
                             <ShowUnrankedPerk
