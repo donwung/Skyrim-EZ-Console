@@ -337,6 +337,18 @@ body {
   /* background-color: green; */
 }
 
+.consoleClipboardAlert-visible {
+  transition: all 0.2s ease-in-out;
+  color: white;
+}
+
+.consoleClipboardAlert-hidden {
+  transition: all 1.5s ease-in-out;
+  color: #00000000;
+}
+
+
+
 .selectRuneTopBorder {
   display: flex;
   justify-content: space-between;
@@ -478,4 +490,8 @@ body {
 
 .flipped {
   rotate: 180deg;
+}
+
+.clickable {
+  cursor: pointer;
 }
