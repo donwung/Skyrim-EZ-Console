@@ -10,12 +10,9 @@ const ConsoleBar = props => {
 
     const [openConsole, setOpenConsole] = useState(false)
     const [peek, setPeek] = useState(false)
-    const [keyDown, setKeyDown] = useState()
-
+    const [showClipboardAlert, setShowClipboardAlert] = useState(false)
 
     const handleOpenConsole = () => {
-        // console.log("opening console")
-        // console.log(openConsole)
         setOpenConsole(!openConsole)
     }
 
@@ -36,11 +33,22 @@ const ConsoleBar = props => {
 
     // TODO: add copy to clipboard feature
     const handleOnCopyToClipboard = () => {
-        // navigator.clipboard.writeText(this.state.textToCopy)
-        const text = document.getElementById('consoleCommandsOutput')
+        // get element by id,
+        // get textcontent from element,
+        // replace textcontent with newline for each parenthesis
+        const text = document.getElementById('consoleCommandsOutput').textContent.replace(/\([^()]*\)/g, '\r\n')
 
-        console.log(text.textContent)
+        navigator.clipboard.writeText(text)
     }
+
+    const handleShowClipboardAlert = () => {
+        setShowClipboardAlert(true)
+
+        setTimeout(() => {
+            setShowClipboardAlert(false)
+        }, 1500)
+    }
+
 
     return (
         <div>
@@ -62,14 +70,24 @@ const ConsoleBar = props => {
                     </img>
                     <div className="selectRuneBar"></div>
                 </div>
-                <div
-                    id="consoleCommandsOutput"
-                    className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
-                    <h3>
-                        <span onClick={() => handleOnCopyToClipboard()}>Copy</span> and paste these
-                    </h3>
-                    <SkillOutput skills={skills}></SkillOutput>
-                    <PerkOutput perks={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></PerkOutput>
+                <div className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
+                    <div style={{ display: "flex", gap: "40px", alignItems: "center" }}>
+                        <h3 style={{ fontSize: "18pt" }}>
+                            <span
+                                onClick=
+                                {() => { handleOnCopyToClipboard(); handleShowClipboardAlert() }}
+                                className="clickable"
+                            >
+                                Copy to Clipboard</span>
+                        </h3>
+                        <h3 className={showClipboardAlert ? "consoleClipboardAlert-visible" : "consoleClipboardAlert-hidden"}>
+                            Copied!
+                        </h3>
+                    </div>
+                    <div id="consoleCommandsOutput">
+                        <SkillOutput skills={skills}></SkillOutput>
+                        <PerkOutput perks={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></PerkOutput>
+                    </div>
                 </div>
             </div>
         </div>
