@@ -18,7 +18,7 @@ function App() {
         // console.log(e.target.value)
         // console.log(updateType)
 
-        const skillName = skill.name.toLowerCase()
+        const skillName = skill.name.toLowerCase().replace(/\s/g, '')
         const skillValue = skill.value
 
         let updatedSkill = {
@@ -82,8 +82,8 @@ function App() {
     }
 
     const findPerksOutputIdxByID = (ID) => {
-        for(let idx = 0; idx < perksOutput.length; idx++){
-            if(perksOutput[idx].ID === ID){
+        for (let idx = 0; idx < perksOutput.length; idx++) {
+            if (perksOutput[idx].ID === ID) {
                 return idx
             }
         }
@@ -134,8 +134,12 @@ function App() {
                     <Route path="/*" element={<Navigate to="/warrior" ></Navigate>}></Route>
                 </Routes>
             </div>
-            <ConsoleBar skills={skills} perksOutput={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></ConsoleBar>
-
+            <ConsoleBar
+                skills={skills}
+                perksOutput={perksOutput}
+                handleOnUpdateSkill={handleOnUpdateSkill}
+                handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}>
+            </ConsoleBar>
         </div>
     )
 }
