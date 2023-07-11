@@ -7,6 +7,7 @@ const ConsoleBar = props => {
     const skills = props.skills;
     const perksOutput = props.perksOutput;
     const handleOnRemoveFromPerksOutput = props.handleOnRemoveFromPerksOutput;
+    const handleOnUpdateSkill = props.handleOnUpdateSkill;
 
     const [openConsole, setOpenConsole] = useState(false)
     const [peek, setPeek] = useState(false)
@@ -85,7 +86,7 @@ const ConsoleBar = props => {
                         </h3>
                     </div>
                     <div id="consoleCommandsOutput">
-                        <SkillOutput skills={skills}></SkillOutput>
+                        <SkillOutput skills={skills} handleOnUpdateSkill={handleOnUpdateSkill}></SkillOutput>
                         <PerkOutput perks={perksOutput} handleOnRemoveFromPerksOutput={handleOnRemoveFromPerksOutput}></PerkOutput>
                     </div>
                 </div>
