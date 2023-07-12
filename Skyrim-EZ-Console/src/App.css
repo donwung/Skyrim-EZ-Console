@@ -227,8 +227,7 @@ body {
 }
 
 .skillNotSelected {
-  color: grey;
-  opacity: 65%;
+  color: #868686a8;
 }
 
 .oneSkill_title {
