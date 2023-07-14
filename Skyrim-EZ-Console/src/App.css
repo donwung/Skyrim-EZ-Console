@@ -3,6 +3,8 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -108,8 +110,8 @@ body {
 
 .skillBg {
   /* Safari 6.0 - 9.0 */
-  /* -webkit-filter: grayscale(100%);
-  filter: grayscale(100%); */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   background-repeat: no-repeat;
   background-position: bottom 15% right 40px;
 }
@@ -319,6 +321,7 @@ body {
   transition: all 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
   overflow-y: hidden;
+  margin-top: -11px;
   padding-left: 25px;
 }
 
@@ -350,7 +353,7 @@ body {
 
 .selectRuneTopBorder {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: end;
 }
 
@@ -488,7 +491,7 @@ body {
 }
 
 .flipped {
-  rotate: 180deg;
+  transform: rotate(180deg);
 }
 
 .clickable {
