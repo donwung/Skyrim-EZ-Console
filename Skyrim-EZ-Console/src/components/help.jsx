@@ -49,9 +49,12 @@ const Help = () => {
                     <br></br>
                     Then go back into your game, open the Skyrim console using "`" (the key under Esc),
                     <br></br>
-                    then paste your command using Ctrl+V.
+                    (alternatively, manually select the text then copy it using Ctrl+C)
                     <br></br>
-                    If done correctly, you should have your updated stats and perks!
+                    then paste your command using Ctrl+V.
+                </p>
+                <p>
+                    Have fun!
                 </p>
             </div>
         </div>

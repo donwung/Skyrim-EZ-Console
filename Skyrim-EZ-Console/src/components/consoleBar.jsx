@@ -38,9 +38,10 @@ const ConsoleBar = props => {
         // get textcontent from element,
         // replace textcontent with newline for each parenthesis
         const text = document.getElementById('consoleCommandsOutput').textContent.replace(/\([^()]*\)/g, '\r\n')
-
         navigator.clipboard.writeText(text)
     }
+
+
 
     const handleShowClipboardAlert = () => {
         setShowClipboardAlert(true)
@@ -60,16 +61,13 @@ const ConsoleBar = props => {
             >
                 {/* <button></button> */}
                 <div className="selectRuneTopBorder">
-                    <div className="selectRuneBar"></div>
                     <img
                         src={selectRune}
                         onClick={() => handleOpenConsole()}
                         onMouseEnter={() => setPeek(true)}
                         onMouseLeave={() => setPeek(false)}
-                        // style={{ display: openConsole && "none" }}
                         className={"consoleThumb "}>
                     </img>
-                    <div className="selectRuneBar"></div>
                 </div>
                 <div className={"consoleWindow " + (openConsole ? "opened " : "closed " + (peek && "peek"))}>
                     <div style={{ display: "flex", gap: "40px", alignItems: "center" }}>
@@ -77,7 +75,8 @@ const ConsoleBar = props => {
                             <span
                                 onClick=
                                 {() => { handleOnCopyToClipboard(); handleShowClipboardAlert() }}
-                                className="clickable"
+                                className="clickable unselectable"
+                                id="copyConsoleToClipboard"
                             >
                                 Copy to Clipboard</span>
                         </h3>
