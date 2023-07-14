@@ -7,6 +7,7 @@ import WarriorSliders from './components/warriorSliders'
 import MageSliders from './components/mageSliders'
 import ThiefSliders from './components/thiefSliders'
 import Help from './components/help'
+import Credits from './components/credits'
 import { Link, Route, Routes, Navigate } from "react-router-dom";
 import ConsoleBar from './components/consoleBar'
 
@@ -104,6 +105,7 @@ function App() {
     return (
         <div className="App">
             <Help></Help>
+            <Credits></Credits>
             <div className="inputWindow">
                 <Routes>
                     <Route path="/warrior" element={
